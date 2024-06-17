@@ -1,1 +1,7 @@
 ---
+ObserverPipelines:
+- name: Pipeline
+  observers:
+    - type: Encoder
+      config:
+        velocity: encoderVelocities
