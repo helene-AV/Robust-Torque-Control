@@ -13,16 +13,18 @@ MyFirstController::MyFirstController(mc_rbdyn::RobotModulePtr rm, double dt, con
   solver().addConstraintSet(dynamicsConstraint);
   postureTask = std::make_shared<mc_tasks::PostureTask>(solver(), robot().robotIndex(), 1, 1);
   solver().addTask(postureTask);
+
   // Eigen::VectorXd dimWeight(300);
   // dimWeight <<  0., 0., 10.;
-  // endEffectorTask = std::make_shared<mc_tasks::EndEffectorTask>(robot().frame("tool_frame"), 10.0, 10000);
-  // endEffectorTask->reset();
-  // // endEffectorTask->dimWeight(dimWeight);
-  // solver().addTask(endEffectorTask); 
+  endEffectorTask = std::make_shared<mc_tasks::EndEffectorTask>(robot().frame("tool_frame"), 10.0, 100);
+  endEffectorTask->reset();
+  // endEffectorTask->dimWeight(dimWeight);
+  solver().addTask(endEffectorTask); 
   // addContact({robot().name(), "ground", "LeftFoot", "AllGround"});
   // addContact({robot().name(), "ground", "RightFoot", "AllGround"});
-  datastore().make<std::string>("ControlMode", "Position"); // entree dans le datastore
+  datastore().make<std::string>("ControlMode", "Torque"); // entree dans le datastore
   datastore().make_call("getPostureTask", [this]() -> mc_tasks::PostureTaskPtr { return postureTask; });
+
   gui()->addElement(this, {"Control Mode"},
                     mc_rtc::gui::Label("Current Control :", [this]() { return this->datastore().get<std::string>("ControlMode"); }),
                     mc_rtc::gui::Button("Position", [this]() { datastore().assign<std::string>("ControlMode", "Position"); }),
@@ -41,9 +43,11 @@ MyFirstController::MyFirstController(mc_rbdyn::RobotModulePtr rm, double dt, con
 
   mc_rtc::log::success("MyFirstController init done");
 }
+
 bool MyFirstController::run()
-{
+{ 
   auto ctrl_mode = datastore().get<std::string>("ControlMode");
+  
   if(ctrl_mode.compare("Position") == 0)
   {
     return mc_control::MCController::run(mc_solver::FeedbackType::OpenLoop);
@@ -54,8 +58,10 @@ bool MyFirstController::run()
   }
   return false;
 }
+
 void MyFirstController::reset(const mc_control::ControllerResetData & reset_data)
 {
   mc_control::MCController::reset(reset_data);
 }
+
 CONTROLLER_CONSTRUCTOR("MyFirstController", MyFirstController)

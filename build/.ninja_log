@@ -1,13 +1,7 @@
 # ninja log v5
-2	26	0	CMakeFiles/install.util	af4beae496303429
-9547	9816	1718598298745201393	src/MyFirstController.so	fe95d54a77f94ad1
-2	9547	1718598298465287062	src/CMakeFiles/MyFirstController.dir/MyFirstController.cpp.o	fa200901a1b9f704
-3	9698	1718599472360952716	src/CMakeFiles/MyFirstController.dir/MyFirstController.cpp.o	fa200901a1b9f704
-9698	9971	1718599472644951567	src/MyFirstController.so	fe95d54a77f94ad1
-3	90	0	CMakeFiles/install.util	af4beae496303429
-3	9496	1718599516792982612	src/CMakeFiles/MyFirstController.dir/MyFirstController.cpp.o	fa200901a1b9f704
-9496	9769	1718599517072984055	src/MyFirstController.so	fe95d54a77f94ad1
-2	28	0	CMakeFiles/install.util	af4beae496303429
-3	13117	1718599552829286491	src/CMakeFiles/MyFirstController.dir/MyFirstController.cpp.o	fa200901a1b9f704
-13117	13588	1718599553317292157	src/MyFirstController.so	fe95d54a77f94ad1
-3	30	0	CMakeFiles/install.util	af4beae496303429
+3	26	0	CMakeFiles/install.util	af4beae496303429
+9774	10043	1718705399089297913	src/MyFirstController.so	fe95d54a77f94ad1
+3	9774	1718705398813305639	src/CMakeFiles/MyFirstController.dir/MyFirstController.cpp.o	fa200901a1b9f704
+2	9500	1718778941376774852	src/CMakeFiles/MyFirstController.dir/MyFirstController.cpp.o	fa200901a1b9f704
+9500	9847	1718778941732773405	src/MyFirstController.so	fe95d54a77f94ad1
+2	22	0	CMakeFiles/install.util	af4beae496303429
