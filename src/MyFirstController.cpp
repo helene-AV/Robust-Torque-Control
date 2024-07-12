@@ -16,10 +16,10 @@ MyFirstController::MyFirstController(mc_rbdyn::RobotModulePtr rm, double dt, con
 
   // Eigen::VectorXd dimWeight(300);
   // dimWeight <<  0., 0., 10.;
-  endEffectorTask = std::make_shared<mc_tasks::EndEffectorTask>(robot().frame("tool_frame"), 10.0, 100);
-  endEffectorTask->reset();
+  // endEffectorTask = std::make_shared<mc_tasks::EndEffectorTask>(robot().frame("tool_frame"), 10.0, 100);
+  // endEffectorTask->reset();
   // endEffectorTask->dimWeight(dimWeight);
-  solver().addTask(endEffectorTask); 
+  // solver().addTask(endEffectorTask); 
   // addContact({robot().name(), "ground", "LeftFoot", "AllGround"});
   // addContact({robot().name(), "ground", "RightFoot", "AllGround"});
   datastore().make<std::string>("ControlMode", "Torque"); // entree dans le datastore

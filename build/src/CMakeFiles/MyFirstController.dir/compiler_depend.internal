@@ -163,14 +163,17 @@ src/CMakeFiles/MyFirstController.dir/MyFirstController.cpp.o
  /home/soucsouc/devel/install/include/mc_solver/QPSolver.h
  /home/soucsouc/devel/install/include/mc_solver/TVMQPSolver.h
  /home/soucsouc/devel/install/include/mc_solver/api.h
- /home/soucsouc/devel/install/include/mc_tasks/CoMTask.h
+ /home/soucsouc/devel/install/include/mc_tasks/EndEffectorTask.h
  /home/soucsouc/devel/install/include/mc_tasks/MetaTask.h
+ /home/soucsouc/devel/install/include/mc_tasks/OrientationTask.h
+ /home/soucsouc/devel/install/include/mc_tasks/PositionTask.h
  /home/soucsouc/devel/install/include/mc_tasks/PostureTask.h
  /home/soucsouc/devel/install/include/mc_tasks/TVMTrajectoryTaskGeneric.h
  /home/soucsouc/devel/install/include/mc_tasks/TrajectoryTaskGeneric.h
  /home/soucsouc/devel/install/include/mc_tasks/api.h
  /home/soucsouc/devel/install/include/mc_tasks/tasks_traits.h
  /home/soucsouc/devel/install/include/mc_tvm/DynamicFunction.h
+ /home/soucsouc/devel/install/include/mc_tvm/PositionFunction.h
  /home/soucsouc/devel/install/include/mc_tvm/api.h
  /home/soucsouc/devel/install/include/mc_tvm/fwd.h
  /home/soucsouc/devel/install/include/rbdyn/config.hh
