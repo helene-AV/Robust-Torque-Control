@@ -162,14 +162,17 @@ src/CMakeFiles/MyFirstController.dir/MyFirstController.cpp.o: /home/soucsouc/dev
   /home/soucsouc/devel/install/include/mc_solver/QPSolver.h \
   /home/soucsouc/devel/install/include/mc_solver/TVMQPSolver.h \
   /home/soucsouc/devel/install/include/mc_solver/api.h \
-  /home/soucsouc/devel/install/include/mc_tasks/CoMTask.h \
+  /home/soucsouc/devel/install/include/mc_tasks/EndEffectorTask.h \
   /home/soucsouc/devel/install/include/mc_tasks/MetaTask.h \
+  /home/soucsouc/devel/install/include/mc_tasks/OrientationTask.h \
+  /home/soucsouc/devel/install/include/mc_tasks/PositionTask.h \
   /home/soucsouc/devel/install/include/mc_tasks/PostureTask.h \
   /home/soucsouc/devel/install/include/mc_tasks/TVMTrajectoryTaskGeneric.h \
   /home/soucsouc/devel/install/include/mc_tasks/TrajectoryTaskGeneric.h \
   /home/soucsouc/devel/install/include/mc_tasks/api.h \
   /home/soucsouc/devel/install/include/mc_tasks/tasks_traits.h \
   /home/soucsouc/devel/install/include/mc_tvm/DynamicFunction.h \
+  /home/soucsouc/devel/install/include/mc_tvm/PositionFunction.h \
   /home/soucsouc/devel/install/include/mc_tvm/api.h \
   /home/soucsouc/devel/install/include/mc_tvm/fwd.h \
   /home/soucsouc/devel/install/include/rbdyn/config.hh \
@@ -1418,7 +1421,9 @@ src/CMakeFiles/MyFirstController.dir/MyFirstController.cpp.o: /home/soucsouc/dev
 
 /usr/include/string.h:
 
-/usr/include/boost/mpl/pop_front_fwd.hpp:
+/usr/include/stdio.h:
+
+/usr/include/stdint.h:
 
 /usr/include/boost/mpl/iterator_tags.hpp:
 
@@ -1532,8 +1537,6 @@ src/CMakeFiles/MyFirstController.dir/MyFirstController.cpp.o: /home/soucsouc/dev
 
 /usr/include/boost/mpl/begin_end.hpp:
 
-/usr/include/boost/mpl/back_inserter.hpp:
-
 /usr/include/boost/mpl/aux_/static_cast.hpp:
 
 /usr/include/boost/mpl/aux_/size_impl.hpp:
@@ -1579,8 +1582,6 @@ src/CMakeFiles/MyFirstController.dir/MyFirstController.cpp.o: /home/soucsouc/dev
 /usr/include/boost/checked_delete.hpp:
 
 /usr/include/boost/mpl/aux_/nested_type_wknd.hpp:
-
-/usr/include/boost/mpl/aux_/na_fwd.hpp:
 
 /usr/include/boost/mpl/aux_/na.hpp:
 
@@ -1747,6 +1748,10 @@ src/CMakeFiles/MyFirstController.dir/MyFirstController.cpp.o: /home/soucsouc/dev
 /usr/include/boost/move/detail/iterator_traits.hpp:
 
 /usr/include/boost/mpl/O1_size.hpp:
+
+/usr/include/boost/mpl/back_inserter.hpp:
+
+/home/soucsouc/devel/install/include/mc_tvm/PositionFunction.h:
 
 /usr/include/boost/mpl/aux_/type_wrapper.hpp:
 
@@ -1920,9 +1925,15 @@ src/CMakeFiles/MyFirstController.dir/MyFirstController.cpp.o: /home/soucsouc/dev
 
 /home/soucsouc/devel/install/include/tvm/task_dynamics/abstract/TaskDynamics.h:
 
-/home/soucsouc/devel/install/include/mc_rtc/gui/elements.h:
+/home/soucsouc/devel/install/include/tvm/task_dynamics/Proportional.h:
+
+/home/soucsouc/devel/install/include/mc_rtc/io_utils.h:
+
+/usr/include/boost/preprocessor/control/while.hpp:
 
 /home/soucsouc/devel/install/include/tvm/task_dynamics/None.h:
+
+/home/soucsouc/devel/install/include/mc_rtc/gui/elements.h:
 
 /usr/include/boost/noncopyable.hpp:
 
@@ -1998,8 +2009,6 @@ src/CMakeFiles/MyFirstController.dir/MyFirstController.cpp.o: /home/soucsouc/dev
 
 /home/soucsouc/devel/install/include/mc_rtc/gui/ArrayLabel.h:
 
-/usr/include/boost/mpl/placeholders.hpp:
-
 /usr/include/boost/integer_fwd.hpp:
 
 /usr/include/boost/type_traits/is_volatile.hpp:
@@ -2036,21 +2045,11 @@ src/CMakeFiles/MyFirstController.dir/MyFirstController.cpp.o: /home/soucsouc/dev
 
 /usr/include/eigen3/Eigen/src/Core/arch/SSE/TypeCasting.h:
 
-/usr/include/boost/mpl/aux_/arity_spec.hpp:
-
 /usr/include/boost/mpl/assert.hpp:
 
 /home/soucsouc/devel/install/include/mc_rtc/config.h:
 
-/usr/lib/gcc/x86_64-linux-gnu/9/include/float.h:
-
-/home/soucsouc/devel/install/include/tvm/scheme/internal/ProblemComputationData.h:
-
-/usr/include/boost/preprocessor/stringize.hpp:
-
-/usr/include/boost/mpl/list/list0.hpp:
-
-/usr/include/boost/cstdint.hpp:
+/usr/include/boost/mpl/aux_/arity_spec.hpp:
 
 /usr/include/eigen3/Eigen/src/Core/products/GeneralMatrixMatrix.h:
 
@@ -2065,6 +2064,20 @@ src/CMakeFiles/MyFirstController.dir/MyFirstController.cpp.o: /home/soucsouc/dev
 /home/soucsouc/devel/install/include/tvm/internal/RangeCounting.h:
 
 /home/soucsouc/devel/install/include/mc_rbdyn/polygon_utils.h:
+
+/home/soucsouc/devel/install/include/tvm/solver/internal/SolverEvents.h:
+
+/usr/include/spdlog/details/null_mutex.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/9/include/float.h:
+
+/home/soucsouc/devel/install/include/tvm/scheme/internal/ProblemComputationData.h:
+
+/usr/include/boost/preprocessor/stringize.hpp:
+
+/usr/include/boost/mpl/list/list0.hpp:
+
+/usr/include/boost/cstdint.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/byteswap.h:
 
@@ -2111,6 +2124,10 @@ src/CMakeFiles/MyFirstController.dir/MyFirstController.cpp.o: /home/soucsouc/dev
 /usr/include/boost/mpl/aux_/traits_lambda_spec.hpp:
 
 /home/soucsouc/devel/install/include/Tasks/QPContactConstr.h:
+
+/home/soucsouc/devel/install/include/mc_rtc/gui/Robot.h:
+
+/home/soucsouc/devel/install/include/mc_rbdyn/PolygonInterpolator.h:
 
 /usr/include/c++/9/cstdlib:
 
@@ -2213,14 +2230,6 @@ src/CMakeFiles/MyFirstController.dir/MyFirstController.cpp.o: /home/soucsouc/dev
 /usr/include/boost/mpl/reverse_fold.hpp:
 
 /home/soucsouc/devel/install/include/mc_rtc/gui/Trajectory.h:
-
-/home/soucsouc/devel/install/include/tvm/solver/internal/SolverEvents.h:
-
-/home/soucsouc/devel/install/include/mc_rbdyn/PolygonInterpolator.h:
-
-/home/soucsouc/devel/install/include/mc_rtc/gui/Robot.h:
-
-/usr/include/spdlog/details/null_mutex.h:
 
 /home/soucsouc/devel/install/include/mc_observers/api.h:
 
@@ -2392,18 +2401,6 @@ src/CMakeFiles/MyFirstController.dir/MyFirstController.cpp.o: /home/soucsouc/dev
 
 /usr/include/spdlog/details/log_msg.h:
 
-/usr/include/boost/mpl/integral_c.hpp:
-
-/usr/include/eigen3/Eigen/src/LU/arch/Inverse_SSE.h:
-
-/usr/include/x86_64-linux-gnu/bits/cpu-set.h:
-
-/home/soucsouc/devel/install/include/mc_filter/utils/clamp.h:
-
-/usr/include/boost/mpl/apply_fwd.hpp:
-
-/usr/include/c++/9/ostream:
-
 /home/soucsouc/devel/install/include/mc_rbdyn/Frame.h:
 
 /home/soucsouc/devel/install/include/sch/Matrix/SmallMatrix4x4T.h:
@@ -2466,9 +2463,9 @@ src/CMakeFiles/MyFirstController.dir/MyFirstController.cpp.o: /home/soucsouc/dev
 
 /usr/include/c++/9/bits/basic_string.tcc:
 
-/usr/include/boost/aligned_storage.hpp:
-
 /usr/include/stdlib.h:
+
+/usr/include/boost/aligned_storage.hpp:
 
 /home/soucsouc/devel/install/include/mc_rtc/gui/Sphere.h:
 
@@ -2558,12 +2555,6 @@ src/CMakeFiles/MyFirstController.dir/MyFirstController.cpp.o: /home/soucsouc/dev
 
 /usr/include/eigen3/Eigen/src/Geometry/AngleAxis.h:
 
-/home/soucsouc/devel/install/include/mc_rtc/io_utils.h:
-
-/home/soucsouc/devel/install/include/tvm/task_dynamics/Proportional.h:
-
-/usr/include/boost/preprocessor/control/while.hpp:
-
 /home/soucsouc/devel/install/include/mc_rtc/loader.h:
 
 /usr/include/boost/mpl/aux_/msvc_eti_base.hpp:
@@ -2612,7 +2603,9 @@ src/CMakeFiles/MyFirstController.dir/MyFirstController.cpp.o: /home/soucsouc/dev
 
 /home/soucsouc/devel/install/include/mc_solver/TVMQPSolver.h:
 
-/home/soucsouc/devel/install/include/mc_tasks/CoMTask.h:
+/usr/include/boost/mpl/aux_/na_fwd.hpp:
+
+/home/soucsouc/devel/install/include/mc_tasks/EndEffectorTask.h:
 
 /usr/include/c++/9/list:
 
@@ -2627,6 +2620,18 @@ src/CMakeFiles/MyFirstController.dir/MyFirstController.cpp.o: /home/soucsouc/dev
 /home/soucsouc/devel/install/include/tvm/utils/internal/MapWithVariableAsKey.h:
 
 /home/soucsouc/devel/install/include/tvm/graph/internal/DependencyGraph.h:
+
+/usr/include/boost/mpl/integral_c.hpp:
+
+/usr/include/eigen3/Eigen/src/LU/arch/Inverse_SSE.h:
+
+/usr/include/x86_64-linux-gnu/bits/cpu-set.h:
+
+/home/soucsouc/devel/install/include/mc_filter/utils/clamp.h:
+
+/usr/include/boost/mpl/apply_fwd.hpp:
+
+/usr/include/c++/9/ostream:
 
 /usr/include/eigen3/Eigen/src/Core/SelfCwiseBinaryOp.h:
 
@@ -2670,6 +2675,8 @@ src/CMakeFiles/MyFirstController.dir/MyFirstController.cpp.o: /home/soucsouc/dev
 
 /usr/include/boost/mpl/aux_/has_begin.hpp:
 
+/home/soucsouc/devel/install/include/mc_tasks/PositionTask.h:
+
 /home/soucsouc/devel/install/include/mc_rbdyn/configuration_io.h:
 
 /usr/include/eigen3/Eigen/src/QR/CompleteOrthogonalDecomposition.h:
@@ -2679,8 +2686,6 @@ src/CMakeFiles/MyFirstController.dir/MyFirstController.cpp.o: /home/soucsouc/dev
 /home/soucsouc/devel/install/include/tvm/Task.h:
 
 /home/soucsouc/devel/install/include/tvm/scheme/internal/CompiledAssignment.h:
-
-/usr/include/boost/mpl/plus.hpp:
 
 /home/soucsouc/devel/install/include/mc_rtc/gui/plot/Ordinate.h:
 
@@ -2825,6 +2830,12 @@ src/CMakeFiles/MyFirstController.dir/MyFirstController.cpp.o: /home/soucsouc/dev
 /home/soucsouc/devel/install/include/tvm/requirements/PriorityLevel.h:
 
 /home/soucsouc/devel/install/include/tvm/solver/abstract/LeastSquareSolver.h:
+
+/usr/include/boost/mpl/placeholders.hpp:
+
+/usr/include/boost/mpl/plus.hpp:
+
+/usr/include/boost/mpl/pop_front_fwd.hpp:
 
 /usr/include/boost/mpl/protect.hpp:
 
@@ -3061,6 +3072,8 @@ src/CMakeFiles/MyFirstController.dir/MyFirstController.cpp.o: /home/soucsouc/dev
 /usr/include/boost/type_traits/is_default_constructible.hpp:
 
 /usr/include/eigen3/Eigen/src/Core/SolverBase.h:
+
+/home/soucsouc/devel/install/include/mc_tasks/OrientationTask.h:
 
 /usr/include/boost/type_traits/add_rvalue_reference.hpp:
 
@@ -3697,7 +3710,3 @@ src/CMakeFiles/MyFirstController.dir/MyFirstController.cpp.o: /home/soucsouc/dev
 /usr/include/spdlog/fmt/ostr.h:
 
 /usr/include/spdlog/tweakme.h:
-
-/usr/include/stdint.h:
-
-/usr/include/stdio.h:
