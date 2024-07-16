@@ -7,23 +7,17 @@
 MyFirstController::MyFirstController(mc_rbdyn::RobotModulePtr rm, double dt, const mc_rtc::Configuration & config)
 : mc_control::MCController(rm, dt, config, Backend::TVM)
 {
-  dynamicsConstraint = mc_rtc::unique_ptr<mc_solver::DynamicsConstraint>(new mc_solver::DynamicsConstraint(robots(), 0, solver().dt(), {0.1, 0.01, 0.5}, 0.9, false, true));
+  // dynamicsConstraint = mc_rtc::unique_ptr<mc_solver::DynamicsConstraint>(new mc_solver::DynamicsConstraint(robots(), robot().robotIndex(), solver().dt(), {0.1, 0.01, 0.5}, 1.0, false, false));
   config_.load(config);
   solver().addConstraintSet(contactConstraint);
   solver().addConstraintSet(dynamicsConstraint);
-  postureTask = std::make_shared<mc_tasks::PostureTask>(solver(), robot().robotIndex(), 1, 1);
+  addContact({robot().name(), "ground", "LeftFoot", "AllGround"});
+  addContact({robot().name(), "ground", "RightFoot", "AllGround"});
+  postureTask = std::make_shared<mc_tasks::PostureTask>(solver(), robot().robotIndex(), 10, 10);
   solver().addTask(postureTask);
 
-  // Eigen::VectorXd dimWeight(300);
-  // dimWeight <<  0., 0., 10.;
-  // endEffectorTask = std::make_shared<mc_tasks::EndEffectorTask>(robot().frame("tool_frame"), 10.0, 100);
-  // endEffectorTask->reset();
-  // endEffectorTask->dimWeight(dimWeight);
-  // solver().addTask(endEffectorTask); 
-  // addContact({robot().name(), "ground", "LeftFoot", "AllGround"});
-  // addContact({robot().name(), "ground", "RightFoot", "AllGround"});
-  datastore().make<std::string>("ControlMode", "Torque"); // entree dans le datastore
-  datastore().make_call("getPostureTask", [this]() -> mc_tasks::PostureTaskPtr { return postureTask; });
+  datastore().make<std::string>("ControlMode", "Position"); // entree dans le datastore
+  // datastore().make_call("getPostureTask", [this]() -> mc_tasks::PostureTaskPtr { return postureTask; });
 
   gui()->addElement(this, {"Control Mode"},
                     mc_rtc::gui::Label("Current Control :", [this]() { return this->datastore().get<std::string>("ControlMode"); }),
