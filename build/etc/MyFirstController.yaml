@@ -1,7 +1,26 @@
----
+# ---
 ObserverPipelines:
-- name: Pipeline
+  name: "ObserverPipeline"
+  gui: true
   observers:
     - type: Encoder
       config:
         velocity: encoderVelocities
+    - type: BodySensor
+      update: true
+    # - type: Encoder
+    # - type: Attitude
+    #   update: true
+    #   required: false
+    # - type: KinematicInertial
+    #   update: true
+    #   config:
+    #     anchorFrame:
+    #       maxAnchorFrameDiscontinuity: 0.05 # [m]
+# ObserverPipelines:
+#   name: "ObserverPipeline"
+#   gui: true
+#   observers:
+#     - type: Encoder
+#       config:
+#         velocity: encoderVelocities
