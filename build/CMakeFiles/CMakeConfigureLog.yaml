@@ -7586,3 +7586,808 @@ events:
         201402
       exitCode: 0
 ...
+
+---
+events:
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "/home/soucsouc/devel/install/lib/cmake/ndcurves/cxx-standard.cmake:49 (try_run)"
+      - "/home/soucsouc/devel/install/lib/cmake/ndcurves/ndcurvesConfig.cmake:178 (CHECK_MINIMAL_CXX_STANDARD)"
+      - "/usr/share/cmake-3.29/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)"
+      - "/home/soucsouc/devel/install/lib/cmake/mc_rtc/mc_rtcConfig.cmake:157 (find_dependency)"
+      - "CMakeLists.txt:14 (find_package)"
+    directories:
+      source: "/home/soucsouc/devel/mc-rtc-controllers/my_first_controller/build/CMakeFiles/CMakeTmp"
+      binary: "/home/soucsouc/devel/mc-rtc-controllers/my_first_controller/build/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/soucsouc/devel/install/lib/cmake/RBDyn"
+    buildResult:
+      variable: "_cxx_standard_build_status"
+      cached: true
+      stdout: |
+        Change Dir: '/home/soucsouc/devel/mc-rtc-controllers/my_first_controller/build/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/ninja -v cmTC_13d0c
+        [1/2] /usr/bin/g++    -o CMakeFiles/cmTC_13d0c.dir/tmp-cxx-standard.cpp.o -c /home/soucsouc/devel/mc-rtc-controllers/my_first_controller/build/cmake/tmp-cxx-standard.cpp
+        [2/2] : && /usr/bin/g++  -rdynamic CMakeFiles/cmTC_13d0c.dir/tmp-cxx-standard.cpp.o -o cmTC_13d0c   && :
+        
+      exitCode: 0
+    runResult:
+      variable: "_cxx_standard_run_status"
+      cached: true
+      stdout: |
+        201402
+      exitCode: 0
+...
+
+---
+events:
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "/home/soucsouc/devel/install/lib/cmake/ndcurves/cxx-standard.cmake:49 (try_run)"
+      - "/home/soucsouc/devel/install/lib/cmake/ndcurves/ndcurvesConfig.cmake:178 (CHECK_MINIMAL_CXX_STANDARD)"
+      - "/usr/share/cmake-3.29/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)"
+      - "/home/soucsouc/devel/install/lib/cmake/mc_rtc/mc_rtcConfig.cmake:157 (find_dependency)"
+      - "CMakeLists.txt:14 (find_package)"
+    directories:
+      source: "/home/soucsouc/devel/mc-rtc-controllers/my_first_controller/build/CMakeFiles/CMakeTmp"
+      binary: "/home/soucsouc/devel/mc-rtc-controllers/my_first_controller/build/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/soucsouc/devel/install/lib/cmake/RBDyn"
+    buildResult:
+      variable: "_cxx_standard_build_status"
+      cached: true
+      stdout: |
+        Change Dir: '/home/soucsouc/devel/mc-rtc-controllers/my_first_controller/build/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/ninja -v cmTC_4ccbd
+        [1/2] /usr/bin/g++    -o CMakeFiles/cmTC_4ccbd.dir/tmp-cxx-standard.cpp.o -c /home/soucsouc/devel/mc-rtc-controllers/my_first_controller/build/cmake/tmp-cxx-standard.cpp
+        [2/2] : && /usr/bin/g++  -rdynamic CMakeFiles/cmTC_4ccbd.dir/tmp-cxx-standard.cpp.o -o cmTC_4ccbd   && :
+        
+      exitCode: 0
+    runResult:
+      variable: "_cxx_standard_run_status"
+      cached: true
+      stdout: |
+        201402
+      exitCode: 0
+...
+
+---
+events:
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "/home/soucsouc/devel/install/lib/cmake/ndcurves/cxx-standard.cmake:49 (try_run)"
+      - "/home/soucsouc/devel/install/lib/cmake/ndcurves/ndcurvesConfig.cmake:178 (CHECK_MINIMAL_CXX_STANDARD)"
+      - "/usr/share/cmake-3.29/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)"
+      - "/home/soucsouc/devel/install/lib/cmake/mc_rtc/mc_rtcConfig.cmake:157 (find_dependency)"
+      - "CMakeLists.txt:14 (find_package)"
+    directories:
+      source: "/home/soucsouc/devel/mc-rtc-controllers/my_first_controller/build/CMakeFiles/CMakeTmp"
+      binary: "/home/soucsouc/devel/mc-rtc-controllers/my_first_controller/build/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/soucsouc/devel/install/lib/cmake/RBDyn"
+    buildResult:
+      variable: "_cxx_standard_build_status"
+      cached: true
+      stdout: |
+        Change Dir: '/home/soucsouc/devel/mc-rtc-controllers/my_first_controller/build/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/ninja -v cmTC_66dbc
+        [1/2] /usr/bin/g++    -o CMakeFiles/cmTC_66dbc.dir/tmp-cxx-standard.cpp.o -c /home/soucsouc/devel/mc-rtc-controllers/my_first_controller/build/cmake/tmp-cxx-standard.cpp
+        [2/2] : && /usr/bin/g++  -rdynamic CMakeFiles/cmTC_66dbc.dir/tmp-cxx-standard.cpp.o -o cmTC_66dbc   && :
+        
+      exitCode: 0
+    runResult:
+      variable: "_cxx_standard_run_status"
+      cached: true
+      stdout: |
+        201402
+      exitCode: 0
+...
+
+---
+events:
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "/home/soucsouc/devel/install/lib/cmake/ndcurves/cxx-standard.cmake:49 (try_run)"
+      - "/home/soucsouc/devel/install/lib/cmake/ndcurves/ndcurvesConfig.cmake:178 (CHECK_MINIMAL_CXX_STANDARD)"
+      - "/usr/share/cmake-3.29/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)"
+      - "/home/soucsouc/devel/install/lib/cmake/mc_rtc/mc_rtcConfig.cmake:157 (find_dependency)"
+      - "CMakeLists.txt:14 (find_package)"
+    directories:
+      source: "/home/soucsouc/devel/mc-rtc-controllers/my_first_controller/build/CMakeFiles/CMakeTmp"
+      binary: "/home/soucsouc/devel/mc-rtc-controllers/my_first_controller/build/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/soucsouc/devel/install/lib/cmake/RBDyn"
+    buildResult:
+      variable: "_cxx_standard_build_status"
+      cached: true
+      stdout: |
+        Change Dir: '/home/soucsouc/devel/mc-rtc-controllers/my_first_controller/build/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/ninja -v cmTC_bce7d
+        [1/2] /usr/bin/g++    -o CMakeFiles/cmTC_bce7d.dir/tmp-cxx-standard.cpp.o -c /home/soucsouc/devel/mc-rtc-controllers/my_first_controller/build/cmake/tmp-cxx-standard.cpp
+        [2/2] : && /usr/bin/g++  -rdynamic CMakeFiles/cmTC_bce7d.dir/tmp-cxx-standard.cpp.o -o cmTC_bce7d   && :
+        
+      exitCode: 0
+    runResult:
+      variable: "_cxx_standard_run_status"
+      cached: true
+      stdout: |
+        201402
+      exitCode: 0
+...
+
+---
+events:
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "/home/soucsouc/devel/install/lib/cmake/ndcurves/cxx-standard.cmake:49 (try_run)"
+      - "/home/soucsouc/devel/install/lib/cmake/ndcurves/ndcurvesConfig.cmake:178 (CHECK_MINIMAL_CXX_STANDARD)"
+      - "/usr/share/cmake-3.29/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)"
+      - "/home/soucsouc/devel/install/lib/cmake/mc_rtc/mc_rtcConfig.cmake:157 (find_dependency)"
+      - "CMakeLists.txt:14 (find_package)"
+    directories:
+      source: "/home/soucsouc/devel/mc-rtc-controllers/my_first_controller/build/CMakeFiles/CMakeTmp"
+      binary: "/home/soucsouc/devel/mc-rtc-controllers/my_first_controller/build/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/soucsouc/devel/install/lib/cmake/RBDyn"
+    buildResult:
+      variable: "_cxx_standard_build_status"
+      cached: true
+      stdout: |
+        Change Dir: '/home/soucsouc/devel/mc-rtc-controllers/my_first_controller/build/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/ninja -v cmTC_97412
+        [1/2] /usr/bin/g++    -o CMakeFiles/cmTC_97412.dir/tmp-cxx-standard.cpp.o -c /home/soucsouc/devel/mc-rtc-controllers/my_first_controller/build/cmake/tmp-cxx-standard.cpp
+        [2/2] : && /usr/bin/g++  -rdynamic CMakeFiles/cmTC_97412.dir/tmp-cxx-standard.cpp.o -o cmTC_97412   && :
+        
+      exitCode: 0
+    runResult:
+      variable: "_cxx_standard_run_status"
+      cached: true
+      stdout: |
+        201402
+      exitCode: 0
+...
+
+---
+events:
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "/home/soucsouc/devel/install/lib/cmake/ndcurves/cxx-standard.cmake:49 (try_run)"
+      - "/home/soucsouc/devel/install/lib/cmake/ndcurves/ndcurvesConfig.cmake:178 (CHECK_MINIMAL_CXX_STANDARD)"
+      - "/usr/share/cmake-3.29/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)"
+      - "/home/soucsouc/devel/install/lib/cmake/mc_rtc/mc_rtcConfig.cmake:157 (find_dependency)"
+      - "CMakeLists.txt:14 (find_package)"
+    directories:
+      source: "/home/soucsouc/devel/mc-rtc-controllers/my_first_controller/build/CMakeFiles/CMakeTmp"
+      binary: "/home/soucsouc/devel/mc-rtc-controllers/my_first_controller/build/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/soucsouc/devel/install/lib/cmake/RBDyn"
+    buildResult:
+      variable: "_cxx_standard_build_status"
+      cached: true
+      stdout: |
+        Change Dir: '/home/soucsouc/devel/mc-rtc-controllers/my_first_controller/build/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/ninja -v cmTC_05997
+        [1/2] /usr/bin/g++    -o CMakeFiles/cmTC_05997.dir/tmp-cxx-standard.cpp.o -c /home/soucsouc/devel/mc-rtc-controllers/my_first_controller/build/cmake/tmp-cxx-standard.cpp
+        [2/2] : && /usr/bin/g++  -rdynamic CMakeFiles/cmTC_05997.dir/tmp-cxx-standard.cpp.o -o cmTC_05997   && :
+        
+      exitCode: 0
+    runResult:
+      variable: "_cxx_standard_run_status"
+      cached: true
+      stdout: |
+        201402
+      exitCode: 0
+...
+
+---
+events:
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "/home/soucsouc/devel/install/lib/cmake/ndcurves/cxx-standard.cmake:49 (try_run)"
+      - "/home/soucsouc/devel/install/lib/cmake/ndcurves/ndcurvesConfig.cmake:178 (CHECK_MINIMAL_CXX_STANDARD)"
+      - "/usr/share/cmake-3.29/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)"
+      - "/home/soucsouc/devel/install/lib/cmake/mc_rtc/mc_rtcConfig.cmake:157 (find_dependency)"
+      - "CMakeLists.txt:14 (find_package)"
+    directories:
+      source: "/home/soucsouc/devel/mc-rtc-controllers/my_first_controller/build/CMakeFiles/CMakeTmp"
+      binary: "/home/soucsouc/devel/mc-rtc-controllers/my_first_controller/build/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/soucsouc/devel/install/lib/cmake/RBDyn"
+    buildResult:
+      variable: "_cxx_standard_build_status"
+      cached: true
+      stdout: |
+        Change Dir: '/home/soucsouc/devel/mc-rtc-controllers/my_first_controller/build/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/ninja -v cmTC_352ec
+        [1/2] /usr/bin/g++    -o CMakeFiles/cmTC_352ec.dir/tmp-cxx-standard.cpp.o -c /home/soucsouc/devel/mc-rtc-controllers/my_first_controller/build/cmake/tmp-cxx-standard.cpp
+        [2/2] : && /usr/bin/g++  -rdynamic CMakeFiles/cmTC_352ec.dir/tmp-cxx-standard.cpp.o -o cmTC_352ec   && :
+        
+      exitCode: 0
+    runResult:
+      variable: "_cxx_standard_run_status"
+      cached: true
+      stdout: |
+        201402
+      exitCode: 0
+...
+
+---
+events:
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "/home/soucsouc/devel/install/lib/cmake/ndcurves/cxx-standard.cmake:49 (try_run)"
+      - "/home/soucsouc/devel/install/lib/cmake/ndcurves/ndcurvesConfig.cmake:178 (CHECK_MINIMAL_CXX_STANDARD)"
+      - "/usr/share/cmake-3.29/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)"
+      - "/home/soucsouc/devel/install/lib/cmake/mc_rtc/mc_rtcConfig.cmake:157 (find_dependency)"
+      - "CMakeLists.txt:14 (find_package)"
+    directories:
+      source: "/home/soucsouc/devel/mc-rtc-controllers/my_first_controller/build/CMakeFiles/CMakeTmp"
+      binary: "/home/soucsouc/devel/mc-rtc-controllers/my_first_controller/build/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/soucsouc/devel/install/lib/cmake/RBDyn"
+    buildResult:
+      variable: "_cxx_standard_build_status"
+      cached: true
+      stdout: |
+        Change Dir: '/home/soucsouc/devel/mc-rtc-controllers/my_first_controller/build/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/ninja -v cmTC_21a12
+        [1/2] /usr/bin/g++    -o CMakeFiles/cmTC_21a12.dir/tmp-cxx-standard.cpp.o -c /home/soucsouc/devel/mc-rtc-controllers/my_first_controller/build/cmake/tmp-cxx-standard.cpp
+        [2/2] : && /usr/bin/g++  -rdynamic CMakeFiles/cmTC_21a12.dir/tmp-cxx-standard.cpp.o -o cmTC_21a12   && :
+        
+      exitCode: 0
+    runResult:
+      variable: "_cxx_standard_run_status"
+      cached: true
+      stdout: |
+        201402
+      exitCode: 0
+...
+
+---
+events:
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "/home/soucsouc/devel/install/lib/cmake/ndcurves/cxx-standard.cmake:49 (try_run)"
+      - "/home/soucsouc/devel/install/lib/cmake/ndcurves/ndcurvesConfig.cmake:178 (CHECK_MINIMAL_CXX_STANDARD)"
+      - "/usr/share/cmake-3.29/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)"
+      - "/home/soucsouc/devel/install/lib/cmake/mc_rtc/mc_rtcConfig.cmake:157 (find_dependency)"
+      - "CMakeLists.txt:14 (find_package)"
+    directories:
+      source: "/home/soucsouc/devel/mc-rtc-controllers/my_first_controller/build/CMakeFiles/CMakeTmp"
+      binary: "/home/soucsouc/devel/mc-rtc-controllers/my_first_controller/build/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/soucsouc/devel/install/lib/cmake/RBDyn"
+    buildResult:
+      variable: "_cxx_standard_build_status"
+      cached: true
+      stdout: |
+        Change Dir: '/home/soucsouc/devel/mc-rtc-controllers/my_first_controller/build/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/ninja -v cmTC_a0363
+        [1/2] /usr/bin/g++    -o CMakeFiles/cmTC_a0363.dir/tmp-cxx-standard.cpp.o -c /home/soucsouc/devel/mc-rtc-controllers/my_first_controller/build/cmake/tmp-cxx-standard.cpp
+        [2/2] : && /usr/bin/g++  -rdynamic CMakeFiles/cmTC_a0363.dir/tmp-cxx-standard.cpp.o -o cmTC_a0363   && :
+        
+      exitCode: 0
+    runResult:
+      variable: "_cxx_standard_run_status"
+      cached: true
+      stdout: |
+        201402
+      exitCode: 0
+...
+
+---
+events:
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "/home/soucsouc/devel/install/lib/cmake/ndcurves/cxx-standard.cmake:49 (try_run)"
+      - "/home/soucsouc/devel/install/lib/cmake/ndcurves/ndcurvesConfig.cmake:178 (CHECK_MINIMAL_CXX_STANDARD)"
+      - "/usr/share/cmake-3.29/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)"
+      - "/home/soucsouc/devel/install/lib/cmake/mc_rtc/mc_rtcConfig.cmake:157 (find_dependency)"
+      - "CMakeLists.txt:14 (find_package)"
+    directories:
+      source: "/home/soucsouc/devel/mc-rtc-controllers/my_first_controller/build/CMakeFiles/CMakeTmp"
+      binary: "/home/soucsouc/devel/mc-rtc-controllers/my_first_controller/build/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/soucsouc/devel/install/lib/cmake/RBDyn"
+    buildResult:
+      variable: "_cxx_standard_build_status"
+      cached: true
+      stdout: |
+        Change Dir: '/home/soucsouc/devel/mc-rtc-controllers/my_first_controller/build/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/ninja -v cmTC_62b86
+        [1/2] /usr/bin/g++    -o CMakeFiles/cmTC_62b86.dir/tmp-cxx-standard.cpp.o -c /home/soucsouc/devel/mc-rtc-controllers/my_first_controller/build/cmake/tmp-cxx-standard.cpp
+        [2/2] : && /usr/bin/g++  -rdynamic CMakeFiles/cmTC_62b86.dir/tmp-cxx-standard.cpp.o -o cmTC_62b86   && :
+        
+      exitCode: 0
+    runResult:
+      variable: "_cxx_standard_run_status"
+      cached: true
+      stdout: |
+        201402
+      exitCode: 0
+...
+
+---
+events:
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "/home/soucsouc/devel/install/lib/cmake/ndcurves/cxx-standard.cmake:49 (try_run)"
+      - "/home/soucsouc/devel/install/lib/cmake/ndcurves/ndcurvesConfig.cmake:178 (CHECK_MINIMAL_CXX_STANDARD)"
+      - "/usr/share/cmake-3.29/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)"
+      - "/home/soucsouc/devel/install/lib/cmake/mc_rtc/mc_rtcConfig.cmake:157 (find_dependency)"
+      - "CMakeLists.txt:14 (find_package)"
+    directories:
+      source: "/home/soucsouc/devel/mc-rtc-controllers/my_first_controller/build/CMakeFiles/CMakeTmp"
+      binary: "/home/soucsouc/devel/mc-rtc-controllers/my_first_controller/build/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/soucsouc/devel/install/lib/cmake/RBDyn"
+    buildResult:
+      variable: "_cxx_standard_build_status"
+      cached: true
+      stdout: |
+        Change Dir: '/home/soucsouc/devel/mc-rtc-controllers/my_first_controller/build/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/ninja -v cmTC_69a9b
+        [1/2] /usr/bin/g++    -o CMakeFiles/cmTC_69a9b.dir/tmp-cxx-standard.cpp.o -c /home/soucsouc/devel/mc-rtc-controllers/my_first_controller/build/cmake/tmp-cxx-standard.cpp
+        [2/2] : && /usr/bin/g++  -rdynamic CMakeFiles/cmTC_69a9b.dir/tmp-cxx-standard.cpp.o -o cmTC_69a9b   && :
+        
+      exitCode: 0
+    runResult:
+      variable: "_cxx_standard_run_status"
+      cached: true
+      stdout: |
+        201402
+      exitCode: 0
+...
+
+---
+events:
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "/home/soucsouc/devel/install/lib/cmake/ndcurves/cxx-standard.cmake:49 (try_run)"
+      - "/home/soucsouc/devel/install/lib/cmake/ndcurves/ndcurvesConfig.cmake:178 (CHECK_MINIMAL_CXX_STANDARD)"
+      - "/usr/share/cmake-3.29/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)"
+      - "/home/soucsouc/devel/install/lib/cmake/mc_rtc/mc_rtcConfig.cmake:157 (find_dependency)"
+      - "CMakeLists.txt:14 (find_package)"
+    directories:
+      source: "/home/soucsouc/devel/mc-rtc-controllers/my_first_controller/build/CMakeFiles/CMakeTmp"
+      binary: "/home/soucsouc/devel/mc-rtc-controllers/my_first_controller/build/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/soucsouc/devel/install/lib/cmake/RBDyn"
+    buildResult:
+      variable: "_cxx_standard_build_status"
+      cached: true
+      stdout: |
+        Change Dir: '/home/soucsouc/devel/mc-rtc-controllers/my_first_controller/build/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/ninja -v cmTC_6a5c3
+        [1/2] /usr/bin/g++    -o CMakeFiles/cmTC_6a5c3.dir/tmp-cxx-standard.cpp.o -c /home/soucsouc/devel/mc-rtc-controllers/my_first_controller/build/cmake/tmp-cxx-standard.cpp
+        [2/2] : && /usr/bin/g++  -rdynamic CMakeFiles/cmTC_6a5c3.dir/tmp-cxx-standard.cpp.o -o cmTC_6a5c3   && :
+        
+      exitCode: 0
+    runResult:
+      variable: "_cxx_standard_run_status"
+      cached: true
+      stdout: |
+        201402
+      exitCode: 0
+...
+
+---
+events:
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "/home/soucsouc/devel/install/lib/cmake/ndcurves/cxx-standard.cmake:49 (try_run)"
+      - "/home/soucsouc/devel/install/lib/cmake/ndcurves/ndcurvesConfig.cmake:178 (CHECK_MINIMAL_CXX_STANDARD)"
+      - "/usr/share/cmake-3.29/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)"
+      - "/home/soucsouc/devel/install/lib/cmake/mc_rtc/mc_rtcConfig.cmake:157 (find_dependency)"
+      - "CMakeLists.txt:14 (find_package)"
+    directories:
+      source: "/home/soucsouc/devel/mc-rtc-controllers/my_first_controller/build/CMakeFiles/CMakeTmp"
+      binary: "/home/soucsouc/devel/mc-rtc-controllers/my_first_controller/build/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/soucsouc/devel/install/lib/cmake/RBDyn"
+    buildResult:
+      variable: "_cxx_standard_build_status"
+      cached: true
+      stdout: |
+        Change Dir: '/home/soucsouc/devel/mc-rtc-controllers/my_first_controller/build/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/ninja -v cmTC_6f9e8
+        [1/2] /usr/bin/g++    -o CMakeFiles/cmTC_6f9e8.dir/tmp-cxx-standard.cpp.o -c /home/soucsouc/devel/mc-rtc-controllers/my_first_controller/build/cmake/tmp-cxx-standard.cpp
+        [2/2] : && /usr/bin/g++  -rdynamic CMakeFiles/cmTC_6f9e8.dir/tmp-cxx-standard.cpp.o -o cmTC_6f9e8   && :
+        
+      exitCode: 0
+    runResult:
+      variable: "_cxx_standard_run_status"
+      cached: true
+      stdout: |
+        201402
+      exitCode: 0
+...
+
+---
+events:
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "/home/soucsouc/devel/install/lib/cmake/ndcurves/cxx-standard.cmake:49 (try_run)"
+      - "/home/soucsouc/devel/install/lib/cmake/ndcurves/ndcurvesConfig.cmake:178 (CHECK_MINIMAL_CXX_STANDARD)"
+      - "/usr/share/cmake-3.29/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)"
+      - "/home/soucsouc/devel/install/lib/cmake/mc_rtc/mc_rtcConfig.cmake:157 (find_dependency)"
+      - "CMakeLists.txt:14 (find_package)"
+    directories:
+      source: "/home/soucsouc/devel/mc-rtc-controllers/my_first_controller/build/CMakeFiles/CMakeTmp"
+      binary: "/home/soucsouc/devel/mc-rtc-controllers/my_first_controller/build/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/soucsouc/devel/install/lib/cmake/RBDyn"
+    buildResult:
+      variable: "_cxx_standard_build_status"
+      cached: true
+      stdout: |
+        Change Dir: '/home/soucsouc/devel/mc-rtc-controllers/my_first_controller/build/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/ninja -v cmTC_feae2
+        [1/2] /usr/bin/g++    -o CMakeFiles/cmTC_feae2.dir/tmp-cxx-standard.cpp.o -c /home/soucsouc/devel/mc-rtc-controllers/my_first_controller/build/cmake/tmp-cxx-standard.cpp
+        [2/2] : && /usr/bin/g++  -rdynamic CMakeFiles/cmTC_feae2.dir/tmp-cxx-standard.cpp.o -o cmTC_feae2   && :
+        
+      exitCode: 0
+    runResult:
+      variable: "_cxx_standard_run_status"
+      cached: true
+      stdout: |
+        201402
+      exitCode: 0
+...
+
+---
+events:
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "/home/soucsouc/devel/install/lib/cmake/ndcurves/cxx-standard.cmake:49 (try_run)"
+      - "/home/soucsouc/devel/install/lib/cmake/ndcurves/ndcurvesConfig.cmake:178 (CHECK_MINIMAL_CXX_STANDARD)"
+      - "/usr/share/cmake-3.29/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)"
+      - "/home/soucsouc/devel/install/lib/cmake/mc_rtc/mc_rtcConfig.cmake:157 (find_dependency)"
+      - "CMakeLists.txt:14 (find_package)"
+    directories:
+      source: "/home/soucsouc/devel/mc-rtc-controllers/my_first_controller/build/CMakeFiles/CMakeTmp"
+      binary: "/home/soucsouc/devel/mc-rtc-controllers/my_first_controller/build/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/soucsouc/devel/install/lib/cmake/RBDyn"
+    buildResult:
+      variable: "_cxx_standard_build_status"
+      cached: true
+      stdout: |
+        Change Dir: '/home/soucsouc/devel/mc-rtc-controllers/my_first_controller/build/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/ninja -v cmTC_5a7a3
+        [1/2] /usr/bin/g++    -o CMakeFiles/cmTC_5a7a3.dir/tmp-cxx-standard.cpp.o -c /home/soucsouc/devel/mc-rtc-controllers/my_first_controller/build/cmake/tmp-cxx-standard.cpp
+        [2/2] : && /usr/bin/g++  -rdynamic CMakeFiles/cmTC_5a7a3.dir/tmp-cxx-standard.cpp.o -o cmTC_5a7a3   && :
+        
+      exitCode: 0
+    runResult:
+      variable: "_cxx_standard_run_status"
+      cached: true
+      stdout: |
+        201402
+      exitCode: 0
+...
+
+---
+events:
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "/home/soucsouc/devel/install/lib/cmake/ndcurves/cxx-standard.cmake:49 (try_run)"
+      - "/home/soucsouc/devel/install/lib/cmake/ndcurves/ndcurvesConfig.cmake:178 (CHECK_MINIMAL_CXX_STANDARD)"
+      - "/usr/share/cmake-3.29/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)"
+      - "/home/soucsouc/devel/install/lib/cmake/mc_rtc/mc_rtcConfig.cmake:157 (find_dependency)"
+      - "CMakeLists.txt:14 (find_package)"
+    directories:
+      source: "/home/soucsouc/devel/mc-rtc-controllers/my_first_controller/build/CMakeFiles/CMakeTmp"
+      binary: "/home/soucsouc/devel/mc-rtc-controllers/my_first_controller/build/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/soucsouc/devel/install/lib/cmake/RBDyn"
+    buildResult:
+      variable: "_cxx_standard_build_status"
+      cached: true
+      stdout: |
+        Change Dir: '/home/soucsouc/devel/mc-rtc-controllers/my_first_controller/build/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/ninja -v cmTC_5f058
+        [1/2] /usr/bin/g++    -o CMakeFiles/cmTC_5f058.dir/tmp-cxx-standard.cpp.o -c /home/soucsouc/devel/mc-rtc-controllers/my_first_controller/build/cmake/tmp-cxx-standard.cpp
+        [2/2] : && /usr/bin/g++  -rdynamic CMakeFiles/cmTC_5f058.dir/tmp-cxx-standard.cpp.o -o cmTC_5f058   && :
+        
+      exitCode: 0
+    runResult:
+      variable: "_cxx_standard_run_status"
+      cached: true
+      stdout: |
+        201402
+      exitCode: 0
+...
+
+---
+events:
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "/home/soucsouc/devel/install/lib/cmake/ndcurves/cxx-standard.cmake:49 (try_run)"
+      - "/home/soucsouc/devel/install/lib/cmake/ndcurves/ndcurvesConfig.cmake:178 (CHECK_MINIMAL_CXX_STANDARD)"
+      - "/usr/share/cmake-3.29/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)"
+      - "/home/soucsouc/devel/install/lib/cmake/mc_rtc/mc_rtcConfig.cmake:157 (find_dependency)"
+      - "CMakeLists.txt:14 (find_package)"
+    directories:
+      source: "/home/soucsouc/devel/mc-rtc-controllers/my_first_controller/build/CMakeFiles/CMakeTmp"
+      binary: "/home/soucsouc/devel/mc-rtc-controllers/my_first_controller/build/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/soucsouc/devel/install/lib/cmake/RBDyn"
+    buildResult:
+      variable: "_cxx_standard_build_status"
+      cached: true
+      stdout: |
+        Change Dir: '/home/soucsouc/devel/mc-rtc-controllers/my_first_controller/build/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/ninja -v cmTC_8be88
+        [1/2] /usr/bin/g++    -o CMakeFiles/cmTC_8be88.dir/tmp-cxx-standard.cpp.o -c /home/soucsouc/devel/mc-rtc-controllers/my_first_controller/build/cmake/tmp-cxx-standard.cpp
+        [2/2] : && /usr/bin/g++  -rdynamic CMakeFiles/cmTC_8be88.dir/tmp-cxx-standard.cpp.o -o cmTC_8be88   && :
+        
+      exitCode: 0
+    runResult:
+      variable: "_cxx_standard_run_status"
+      cached: true
+      stdout: |
+        201402
+      exitCode: 0
+...
+
+---
+events:
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "/home/soucsouc/devel/install/lib/cmake/ndcurves/cxx-standard.cmake:49 (try_run)"
+      - "/home/soucsouc/devel/install/lib/cmake/ndcurves/ndcurvesConfig.cmake:178 (CHECK_MINIMAL_CXX_STANDARD)"
+      - "/usr/share/cmake-3.29/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)"
+      - "/home/soucsouc/devel/install/lib/cmake/mc_rtc/mc_rtcConfig.cmake:157 (find_dependency)"
+      - "CMakeLists.txt:14 (find_package)"
+    directories:
+      source: "/home/soucsouc/devel/mc-rtc-controllers/my_first_controller/build/CMakeFiles/CMakeTmp"
+      binary: "/home/soucsouc/devel/mc-rtc-controllers/my_first_controller/build/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/soucsouc/devel/install/lib/cmake/RBDyn"
+    buildResult:
+      variable: "_cxx_standard_build_status"
+      cached: true
+      stdout: |
+        Change Dir: '/home/soucsouc/devel/mc-rtc-controllers/my_first_controller/build/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/ninja -v cmTC_68b2e
+        [1/2] /usr/bin/g++    -o CMakeFiles/cmTC_68b2e.dir/tmp-cxx-standard.cpp.o -c /home/soucsouc/devel/mc-rtc-controllers/my_first_controller/build/cmake/tmp-cxx-standard.cpp
+        [2/2] : && /usr/bin/g++  -rdynamic CMakeFiles/cmTC_68b2e.dir/tmp-cxx-standard.cpp.o -o cmTC_68b2e   && :
+        
+      exitCode: 0
+    runResult:
+      variable: "_cxx_standard_run_status"
+      cached: true
+      stdout: |
+        201402
+      exitCode: 0
+...
+
+---
+events:
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "/home/soucsouc/devel/install/lib/cmake/ndcurves/cxx-standard.cmake:49 (try_run)"
+      - "/home/soucsouc/devel/install/lib/cmake/ndcurves/ndcurvesConfig.cmake:178 (CHECK_MINIMAL_CXX_STANDARD)"
+      - "/usr/share/cmake-3.29/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)"
+      - "/home/soucsouc/devel/install/lib/cmake/mc_rtc/mc_rtcConfig.cmake:157 (find_dependency)"
+      - "CMakeLists.txt:14 (find_package)"
+    directories:
+      source: "/home/soucsouc/devel/mc-rtc-controllers/my_first_controller/build/CMakeFiles/CMakeTmp"
+      binary: "/home/soucsouc/devel/mc-rtc-controllers/my_first_controller/build/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/soucsouc/devel/install/lib/cmake/RBDyn"
+    buildResult:
+      variable: "_cxx_standard_build_status"
+      cached: true
+      stdout: |
+        Change Dir: '/home/soucsouc/devel/mc-rtc-controllers/my_first_controller/build/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/ninja -v cmTC_bcc30
+        [1/2] /usr/bin/g++    -o CMakeFiles/cmTC_bcc30.dir/tmp-cxx-standard.cpp.o -c /home/soucsouc/devel/mc-rtc-controllers/my_first_controller/build/cmake/tmp-cxx-standard.cpp
+        [2/2] : && /usr/bin/g++  -rdynamic CMakeFiles/cmTC_bcc30.dir/tmp-cxx-standard.cpp.o -o cmTC_bcc30   && :
+        
+      exitCode: 0
+    runResult:
+      variable: "_cxx_standard_run_status"
+      cached: true
+      stdout: |
+        201402
+      exitCode: 0
+...
+
+---
+events:
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "/home/soucsouc/devel/install/lib/cmake/ndcurves/cxx-standard.cmake:49 (try_run)"
+      - "/home/soucsouc/devel/install/lib/cmake/ndcurves/ndcurvesConfig.cmake:178 (CHECK_MINIMAL_CXX_STANDARD)"
+      - "/usr/share/cmake-3.29/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)"
+      - "/home/soucsouc/devel/install/lib/cmake/mc_rtc/mc_rtcConfig.cmake:157 (find_dependency)"
+      - "CMakeLists.txt:14 (find_package)"
+    directories:
+      source: "/home/soucsouc/devel/mc-rtc-controllers/my_first_controller/build/CMakeFiles/CMakeTmp"
+      binary: "/home/soucsouc/devel/mc-rtc-controllers/my_first_controller/build/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/soucsouc/devel/install/lib/cmake/RBDyn"
+    buildResult:
+      variable: "_cxx_standard_build_status"
+      cached: true
+      stdout: |
+        Change Dir: '/home/soucsouc/devel/mc-rtc-controllers/my_first_controller/build/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/ninja -v cmTC_ccea9
+        [1/2] /usr/bin/g++    -o CMakeFiles/cmTC_ccea9.dir/tmp-cxx-standard.cpp.o -c /home/soucsouc/devel/mc-rtc-controllers/my_first_controller/build/cmake/tmp-cxx-standard.cpp
+        [2/2] : && /usr/bin/g++  -rdynamic CMakeFiles/cmTC_ccea9.dir/tmp-cxx-standard.cpp.o -o cmTC_ccea9   && :
+        
+      exitCode: 0
+    runResult:
+      variable: "_cxx_standard_run_status"
+      cached: true
+      stdout: |
+        201402
+      exitCode: 0
+...
+
+---
+events:
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "/home/soucsouc/devel/install/lib/cmake/ndcurves/cxx-standard.cmake:49 (try_run)"
+      - "/home/soucsouc/devel/install/lib/cmake/ndcurves/ndcurvesConfig.cmake:178 (CHECK_MINIMAL_CXX_STANDARD)"
+      - "/usr/share/cmake-3.29/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)"
+      - "/home/soucsouc/devel/install/lib/cmake/mc_rtc/mc_rtcConfig.cmake:157 (find_dependency)"
+      - "CMakeLists.txt:14 (find_package)"
+    directories:
+      source: "/home/soucsouc/devel/mc-rtc-controllers/my_first_controller/build/CMakeFiles/CMakeTmp"
+      binary: "/home/soucsouc/devel/mc-rtc-controllers/my_first_controller/build/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/soucsouc/devel/install/lib/cmake/RBDyn"
+    buildResult:
+      variable: "_cxx_standard_build_status"
+      cached: true
+      stdout: |
+        Change Dir: '/home/soucsouc/devel/mc-rtc-controllers/my_first_controller/build/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/ninja -v cmTC_a5261
+        [1/2] /usr/bin/g++    -o CMakeFiles/cmTC_a5261.dir/tmp-cxx-standard.cpp.o -c /home/soucsouc/devel/mc-rtc-controllers/my_first_controller/build/cmake/tmp-cxx-standard.cpp
+        [2/2] : && /usr/bin/g++  -rdynamic CMakeFiles/cmTC_a5261.dir/tmp-cxx-standard.cpp.o -o cmTC_a5261   && :
+        
+      exitCode: 0
+    runResult:
+      variable: "_cxx_standard_run_status"
+      cached: true
+      stdout: |
+        201402
+      exitCode: 0
+...
+
+---
+events:
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "/home/soucsouc/devel/install/lib/cmake/ndcurves/cxx-standard.cmake:49 (try_run)"
+      - "/home/soucsouc/devel/install/lib/cmake/ndcurves/ndcurvesConfig.cmake:178 (CHECK_MINIMAL_CXX_STANDARD)"
+      - "/usr/share/cmake-3.29/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)"
+      - "/home/soucsouc/devel/install/lib/cmake/mc_rtc/mc_rtcConfig.cmake:157 (find_dependency)"
+      - "CMakeLists.txt:14 (find_package)"
+    directories:
+      source: "/home/soucsouc/devel/mc-rtc-controllers/my_first_controller/build/CMakeFiles/CMakeTmp"
+      binary: "/home/soucsouc/devel/mc-rtc-controllers/my_first_controller/build/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/soucsouc/devel/install/lib/cmake/RBDyn"
+    buildResult:
+      variable: "_cxx_standard_build_status"
+      cached: true
+      stdout: |
+        Change Dir: '/home/soucsouc/devel/mc-rtc-controllers/my_first_controller/build/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/ninja -v cmTC_1fb25
+        [1/2] /usr/bin/g++    -o CMakeFiles/cmTC_1fb25.dir/tmp-cxx-standard.cpp.o -c /home/soucsouc/devel/mc-rtc-controllers/my_first_controller/build/cmake/tmp-cxx-standard.cpp
+        [2/2] : && /usr/bin/g++  -rdynamic CMakeFiles/cmTC_1fb25.dir/tmp-cxx-standard.cpp.o -o cmTC_1fb25   && :
+        
+      exitCode: 0
+    runResult:
+      variable: "_cxx_standard_run_status"
+      cached: true
+      stdout: |
+        201402
+      exitCode: 0
+...
+
+---
+events:
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "/home/soucsouc/devel/install/lib/cmake/ndcurves/cxx-standard.cmake:49 (try_run)"
+      - "/home/soucsouc/devel/install/lib/cmake/ndcurves/ndcurvesConfig.cmake:178 (CHECK_MINIMAL_CXX_STANDARD)"
+      - "/usr/share/cmake-3.29/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)"
+      - "/home/soucsouc/devel/install/lib/cmake/mc_rtc/mc_rtcConfig.cmake:157 (find_dependency)"
+      - "CMakeLists.txt:14 (find_package)"
+    directories:
+      source: "/home/soucsouc/devel/mc-rtc-controllers/my_first_controller/build/CMakeFiles/CMakeTmp"
+      binary: "/home/soucsouc/devel/mc-rtc-controllers/my_first_controller/build/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/soucsouc/devel/install/lib/cmake/RBDyn"
+    buildResult:
+      variable: "_cxx_standard_build_status"
+      cached: true
+      stdout: |
+        Change Dir: '/home/soucsouc/devel/mc-rtc-controllers/my_first_controller/build/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/ninja -v cmTC_3b724
+        [1/2] /usr/bin/g++    -o CMakeFiles/cmTC_3b724.dir/tmp-cxx-standard.cpp.o -c /home/soucsouc/devel/mc-rtc-controllers/my_first_controller/build/cmake/tmp-cxx-standard.cpp
+        [2/2] : && /usr/bin/g++  -rdynamic CMakeFiles/cmTC_3b724.dir/tmp-cxx-standard.cpp.o -o cmTC_3b724   && :
+        
+      exitCode: 0
+    runResult:
+      variable: "_cxx_standard_run_status"
+      cached: true
+      stdout: |
+        201402
+      exitCode: 0
+...

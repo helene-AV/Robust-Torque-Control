@@ -4,3 +4,12 @@ WARNING: Too many contacts. Either the arena memory is full, or nconmax is speci
 Thu Jun 13 14:33:28 2024
 WARNING: Nan, Inf or huge value in QACC at DOF 0. The simulation is unstable. Time = 11.4500.
 
+Thu Aug 15 11:12:39 2024
+WARNING: Nan, Inf or huge value in QACC at DOF 0. The simulation is unstable. Time = 3.9050.
+
+Thu Aug 15 15:50:55 2024
+WARNING: Nan, Inf or huge value in QACC at DOF 0. The simulation is unstable. Time = 22.6870.
+
+Thu Aug 15 16:00:52 2024
+WARNING: Nan, Inf or huge value in QACC at DOF 31. The simulation is unstable. Time = 5.5760.
+
