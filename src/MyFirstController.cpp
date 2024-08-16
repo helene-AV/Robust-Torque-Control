@@ -52,9 +52,9 @@ MyFirstController::MyFirstController(mc_rbdyn::RobotModulePtr rm, double dt, con
         {"LSC", {-4.52962e-05}}, {"LSP", {1.04471}}, {"LSR", {-0.34793}}, {"LSY", {-0.0834915}}, {"LEP", {-1.83162}}, {"LWRY", {-0.000505652}}, {"LWRR", {-0.697133}}, {"LWRP", {0.00133077}}, {"LHDY", {-6.02042e-05}}
     };
 
-  dynamicsConstraint = mc_rtc::unique_ptr<mc_solver::DynamicsConstraint>(new mc_solver::DynamicsConstraint(robots(), robot().robotIndex(), solver().dt(), {0.1, 0.01, 0.5}, 1.0, false, true));
+  // dynamicsConstraint = mc_rtc::unique_ptr<mc_solver::DynamicsConstraint>(new mc_solver::DynamicsConstraint(robots(), robot().robotIndex(), solver().dt(), {0.1, 0.01, 0.5}, 1.0, false, true));
   config_.load(config);
-  contactConstraint = mc_rtc::unique_ptr<mc_solver::ContactConstraint>(new mc_solver::ContactConstraint(timeStep, mc_solver::ContactConstraint::ContactType::Acceleration));
+  // contactConstraint = mc_rtc::unique_ptr<mc_solver::ContactConstraint>(new mc_solver::ContactConstraint(timeStep, mc_solver::ContactConstraint::ContactType::Acceleration));
   solver().addConstraintSet(contactConstraint);
   solver().addConstraintSet(dynamicsConstraint);
   addContact({robot().name(), "ground", "LeftFoot", "AllGround"});
