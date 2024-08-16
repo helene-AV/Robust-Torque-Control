@@ -17,9 +17,13 @@ struct MyFirstController_DLLAPI MyFirstController : public mc_control::MCControl
   void reset(const mc_control::ControllerResetData & reset_data) override;
 
   std::shared_ptr<mc_tasks::PostureTask> postureTask ;
+  
   std::map<std::string, std::vector<double>> postureTarget;
+  std::map<std::string, std::vector<double>> postureTargetJVRC1;
+  std::map<std::string, std::vector<double>> postureTargetFixJVRC1;
+  std::map<std::string, std::vector<double>> postureTargetFixReal;  
   std::vector<std::vector<double>> qTarget; 
-  std::map<std::string, size_t> jointNames;
+  std::map<std::string, std::vector<double>> stance;
 
 private:
   mc_rtc::Configuration config_;
