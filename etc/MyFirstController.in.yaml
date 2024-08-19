@@ -8,6 +8,8 @@ ObserverPipelines:
         velocity: encoderVelocities
     - type: BodySensor
       update: true
+      config:
+        bodySensor: FloatingBase
     # - type: Encoder
     # - type: Attitude
     #   update: true
