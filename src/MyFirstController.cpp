@@ -28,10 +28,10 @@ MyFirstController::MyFirstController(mc_rbdyn::RobotModulePtr rm, double dt, con
   };
   postureTargetJVRC1 = {
         {"R_HIP_P", {-0.382943}}, {"R_HIP_R", {-0.0074722}}, {"R_HIP_Y", {-0.00107667}}, {"R_KNEE", {0.7244}}, {"R_ANKLE_P", {-0.330407}}, {"R_ANKLE_R", {-0.00521519}},
-        {"L_HIP_P", {-0.38051}}, {"L_HIP_R", {0.0203316}}, {"L_HIP_Y", {-0.000129391}}, {"L_KNEE", {0.722849}}, {"L_ANKLE_P", {-0.329363}}, {"L_ANKLE_R", {-0.0201255}},
+        {"L_HIP_P", {-0.382943}}, {"L_HIP_R", {0.0074722}}, {"L_HIP_Y", {-0.00107667}}, {"L_KNEE", {0.7244}}, {"L_ANKLE_P", {-0.330407}}, {"L_ANKLE_R", {-0.0221519}},
         {"WAIST_Y", {5.01705e-07}}, {"WAIST_R", {-7.03367e-07}}, {"WAIST_P", {0.133806}}, {"NECK_Y", {-5.74927e-08}}, {"NECK_R", {3.46569e-07}}, {"NECK_P", {0.00045688}},
         {"R_SHOULDER_P", {-0.0493383}}, {"R_SHOULDER_R", {-0.166255}}, {"R_SHOULDER_Y", {0.000705349}}, {"R_ELBOW_P", {-0.516636}}, {"R_ELBOW_Y", {1.90064e-05}},
-        {"R_WRIST_R", {0.000472426}}, {"R_WRIST_Y", {4.49294e-05}}, {"L_SHOULDER_P", {-7.68253e-05}}, {"L_SHOULDER_R", {-0.0493373}}, {"L_SHOULDER_Y", {-0.000707033}},
+        {"R_WRIST_R", {0.000472426}}, {"R_WRIST_Y", {4.49294e-05}}, {"L_SHOULDER_P", {-0.0493383}}, {"L_SHOULDER_R", {0.166255}}, {"L_SHOULDER_Y", {-0.000705349}},
         {"L_ELBOW_P", {-0.516733}}, {"L_ELBOW_Y", {-1.90151e-05}}, {"L_WRIST_R", {0.000472426}}, {"L_WRIST_Y", {4.49294e-05}}
     };
 
@@ -52,9 +52,9 @@ MyFirstController::MyFirstController(mc_rbdyn::RobotModulePtr rm, double dt, con
         {"LSC", {-4.52962e-05}}, {"LSP", {1.04471}}, {"LSR", {-0.34793}}, {"LSY", {-0.0834915}}, {"LEP", {-1.83162}}, {"LWRY", {-0.000505652}}, {"LWRR", {-0.697133}}, {"LWRP", {0.00133077}}, {"LHDY", {-6.02042e-05}}
     };
 
-  // dynamicsConstraint = mc_rtc::unique_ptr<mc_solver::DynamicsConstraint>(new mc_solver::DynamicsConstraint(robots(), robot().robotIndex(), solver().dt(), {0.1, 0.01, 0.5}, 1.0, false, true));
+  dynamicsConstraint = mc_rtc::unique_ptr<mc_solver::DynamicsConstraint>(new mc_solver::DynamicsConstraint(robots(), robot().robotIndex(), solver().dt(), {0.1, 0.01, 0.5}, 1.0, false, true));
   config_.load(config);
-  // contactConstraint = mc_rtc::unique_ptr<mc_solver::ContactConstraint>(new mc_solver::ContactConstraint(timeStep, mc_solver::ContactConstraint::ContactType::Acceleration));
+  contactConstraint = mc_rtc::unique_ptr<mc_solver::ContactConstraint>(new mc_solver::ContactConstraint(timeStep, mc_solver::ContactConstraint::ContactType::Acceleration));
   solver().addConstraintSet(contactConstraint);
   solver().addConstraintSet(dynamicsConstraint);
   addContact({robot().name(), "ground", "LeftFoot", "AllGround"});
@@ -105,20 +105,21 @@ bool MyFirstController::run()
   // auto it = postureTargetJVRC1.begin();
 
   // for(const auto &q : qTarget){
-  //   if(!q.empty() && q.size() == 1){
-  //     if(it != postureTargetJVRC1.end()){
-  //         it->second = qTarget[i];
-  //         std::cout << "qTarget[" << i << "] = " << qTarget[i][0] << std::endl;
-  //     }
-  //     std::advance(it, 1);
-  //   }
+  //   if(!q.empty() && q.size() > 1){
+  //     // if(it != postureTargetJVRC1.end()){
+  //     //     it->second = qTarget[i];
+  //     //     std::cout << "qTarget[" << i << "] = " << qTarget[i][0] << std::endl;
+  //     // }
+  //     // std::advance(it, 1);
+  //         for (const auto& elem : q) {std::cout << elem << " ";}
+  //   }   
   //   i++; 
   // }
 
   // std::cout << "size : " << i << std::endl;
   // std::cout << "postureTargetFix size : " << postureTargetFixJVRC1.size() << std::endl;
   if (ctlTime_ > 5.000) {
-    postureTask->target(postureTargetJVRC1);
+    postureTask->target(postureTarget);
     datastore().assign<std::string>("ControlMode", "Torque"); 
   }
   auto ctrl_mode = datastore().get<std::string>("ControlMode");
