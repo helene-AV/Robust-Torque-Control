@@ -1,2 +1,0 @@
-/home/soucsouc/devel/install/lib/mc_controller/etc/MyFirstController.yaml
-/home/soucsouc/devel/install/lib/mc_controller/MyFirstController.so
