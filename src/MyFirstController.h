@@ -2,7 +2,7 @@
 
 #include <mc_control/mc_controller.h>
 #include <mc_tasks/PostureTask.h>
-#include <mc_tasks/PositionTask.h>
+#include <mc_tasks/CoMTask.h>
 #include <string>
 
 
@@ -17,7 +17,8 @@ struct MyFirstController_DLLAPI MyFirstController : public mc_control::MCControl
   void reset(const mc_control::ControllerResetData & reset_data) override;
 
   std::shared_ptr<mc_tasks::PostureTask> postureTask ;
-  
+  std::shared_ptr<mc_tasks::CoMTask> comTask ;
+
   std::map<std::string, std::vector<double>> postureTarget;
   std::map<std::string, std::vector<double>> postureTargetJVRC1;
   std::map<std::string, std::vector<double>> postureTargetFixJVRC1;
