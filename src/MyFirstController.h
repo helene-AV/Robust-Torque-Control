@@ -29,4 +29,5 @@ struct MyFirstController_DLLAPI MyFirstController : public mc_control::MCControl
 private:
   mc_rtc::Configuration config_;
   double ctlTime_;
+  double leftFootRatio_;
 };

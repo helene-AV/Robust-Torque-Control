@@ -87,9 +87,25 @@ MyFirstController::MyFirstController(mc_rbdyn::RobotModulePtr rm, double dt, con
                          return 0;
                        });
 
+  logger().addLogEntry("leftFootRatio",
+  [this]()
+  {
+    return leftFootRatio_;
+  });
+  // Update observers
+  datastore().make_call("KinematicAnchorFrame::" + robot().name(),
+                        [this](const mc_rbdyn::Robot & robot)
+                        {
+                          leftFootRatio_ = robot.indirectSurfaceForceSensor("LeftFootCenter").force().z()
+                           / (robot.indirectSurfaceForceSensor("LeftFootCenter").force().z()
+                              + robot.indirectSurfaceForceSensor("RightFootCenter").force().z());
+                          return sva::interpolate(robot.surfacePose("RightFootCenter"),
+                                                  robot.surfacePose("LeftFootCenter"), leftFootRatio_);
+                        });
 
   mc_rtc::log::success("MyFirstController init done");
 }
+
 
 bool MyFirstController::run()
 { 
@@ -104,7 +120,7 @@ bool MyFirstController::run()
   //     }
   //     std::cout << std::endl;
   // }
-  if (ctlTime_ <= 9.80 && ctlTime_ >= 9.750){
+  if (ctlTime_ <= 9.60 && ctlTime_ >= 9.50){
     qTarget = realRobot().mbc().q;
 
     for(int i = 1; i < robot().mb().nrJoints(); ++i)
@@ -136,7 +152,7 @@ bool MyFirstController::run()
   // std::cout << "size : " << i << std::endl;
   // std::cout << "postureTargetFix size : " << postureTarget.size() << std::endl;
 
-  if (ctlTime_ >= 10.000 && ctlTime_<= 10.010) { 
+  if (ctlTime_ >= 10.000 && ctlTime_<= 10.10) { 
     postureTask->posture(qTarget);
     datastore().assign<std::string>("ControlMode", "Torque"); 
   }

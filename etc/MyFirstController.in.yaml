@@ -6,19 +6,17 @@ ObserverPipelines:
     - type: Encoder
       config:
         velocity: encoderVelocities
-    - type: BodySensor
+#    - type: BodySensor
+#      update: false
+#      config:
+#        bodySensor: FloatingBase
+    - type: Attitude
+      update: true
+    - type: KinematicInertial
       update: true
       config:
-        bodySensor: FloatingBase
-    # - type: Encoder
-    # - type: Attitude
-    #   update: true
-    #   required: false
-    # - type: KinematicInertial
-    #   update: true
-    #   config:
-    #     anchorFrame:
-    #       maxAnchorFrameDiscontinuity: 0.05 # [m]
+        anchorFrame:
+          maxAnchorFrameDiscontinuity: 0.05 # [m]
 # ObserverPipelines:
 #   name: "ObserverPipeline"
 #   gui: true
@@ -26,3 +24,4 @@ ObserverPipelines:
 #     - type: Encoder
 #       config:
 #         velocity: encoderVelocities
+
