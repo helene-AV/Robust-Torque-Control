@@ -14,6 +14,7 @@
 #include <ostream>
 #include <string>
 
+//hello
 
 MyFirstController::MyFirstController(mc_rbdyn::RobotModulePtr rm, double dt, const mc_rtc::Configuration & config)
 : mc_control::MCController(rm, dt, config, Backend::TVM)
