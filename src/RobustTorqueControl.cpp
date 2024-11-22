@@ -1,10 +1,16 @@
-#include "MyFirstController.h"
+#include "RobustTorqueControl.h"
+#include <Eigen/src/Core/Matrix.h>
 #include <RBDyn/MultiBodyConfig.h>
 #include <SpaceVecAlg/PTransform.h>
+#include <array>
 #include <iostream>
 #include <iterator>
 #include <map>
+#include <mc_control/MCController.h>
+#include <mc_control/mc_global_controller.h>
 #include <mc_rbdyn/RobotLoader.h>
+#include <mc_rtc/gui/types.h>
+#include <mc_rtc/logging.h>
 #include <mc_rtc/unique_ptr.h>
 #include <mc_solver/ContactConstraint.h>
 #include <mc_tasks/PostureTask.h>
@@ -14,10 +20,10 @@
 #include <ostream>
 #include <string>
 
-//hello
 
-MyFirstController::MyFirstController(mc_rbdyn::RobotModulePtr rm, double dt, const mc_rtc::Configuration & config)
-: mc_control::MCController(rm, dt, config, Backend::TVM)
+
+RobustTorqueControl::RobustTorqueControl(mc_rbdyn::RobotModulePtr rm, double dt, const mc_rtc::Configuration & config)
+: mc_control::MCController(rm, dt, config, Backend::Tasks), ctlTime_(0)
 {
   // postureTarget = {
   //     {"RCY", {-7.20383e-09}}, {"RCR", {9.95698e-09}}, {"RCP", {-0.468969}}, {"RKP", {0.872667}}, {"RAP", {-0.403692}}, {"RAR", {-8.24594e-09}},
@@ -57,11 +63,11 @@ MyFirstController::MyFirstController(mc_rbdyn::RobotModulePtr rm, double dt, con
   //       {"LSC", {-4.52962e-05}}, {"LSP", {1.04471}}, {"LSR", {-0.34793}}, {"LSY", {-0.0834915}}, {"LEP", {-1.83162}}, {"LWRY", {-0.000505652}}, {"LWRR", {-0.697133}}, {"LWRP", {0.00133077}}, {"LHDY", {-6.02042e-05}}
   //   };
 
-  dynamicsConstraint = mc_rtc::unique_ptr<mc_solver::DynamicsConstraint>(new mc_solver::DynamicsConstraint(robots(), robot().robotIndex(), solver().dt(), {0.1, 0.01, 0.5}, 1.0, false, true));
+  dynamicConstraintTest = std::make_unique<mc_solver::DynamicsConstraint>(robots(), robot().robotIndex(), solver().dt(), std::array<double, 3>({0.1, 0.01, 0.5}), 1.0, false, true);
   // config_.load(config);
-  contactConstraint = mc_rtc::unique_ptr<mc_solver::ContactConstraint>(new mc_solver::ContactConstraint(timeStep, mc_solver::ContactConstraint::ContactType::Acceleration));
-  solver().addConstraintSet(contactConstraint);
-  solver().addConstraintSet(dynamicsConstraint);
+  contactConstraintTest = std::make_unique<mc_solver::ContactConstraint>(timeStep, mc_solver::ContactConstraint::ContactType::Acceleration);
+  solver().addConstraintSet(dynamicConstraintTest);
+  solver().addConstraintSet(contactConstraintTest);
   addContact({robot().name(), "ground", "LeftFoot", "AllGround"});
   addContact({robot().name(), "ground", "RightFoot", "AllGround"});
   postureTask = std::make_shared<mc_tasks::PostureTask>(solver(), robot().robotIndex(), 10, 1000);
@@ -76,7 +82,7 @@ MyFirstController::MyFirstController(mc_rbdyn::RobotModulePtr rm, double dt, con
                     mc_rtc::gui::Label("Current Control :", [this]() { return this->datastore().get<std::string>("ControlMode"); }),
                     mc_rtc::gui::Button("Position", [this]() { datastore().assign<std::string>("ControlMode", "Position"); }),
                     mc_rtc::gui::Button("Torque", [this]() { datastore().assign<std::string>("ControlMode", "Torque"); }));
-  
+
   logger().addLogEntry("ControlMode",
                        [this]()
                        {
@@ -104,73 +110,43 @@ MyFirstController::MyFirstController(mc_rbdyn::RobotModulePtr rm, double dt, con
                                                   robot.surfacePose("LeftFootCenter"), leftFootRatio_);
                         });
 
-  mc_rtc::log::success("MyFirstController init done");
+  mc_rtc::log::success("RobustTorqueControl init done");
 }
 
 
-bool MyFirstController::run()
+bool RobustTorqueControl::run()
 { 
-  ctlTime_ += timeStep;
-  std::cout<<ctlTime_<<std::endl;
+  // if (ctlTime_ <= 9.60 && ctlTime_ >= 9.50){
+  //   qTarget = realRobot().mbc().q;
+  //   jointTorqueVec = robot().jointTorques();
 
-  // stance = realRobot().stance();
-  // for (const auto& pair : stance) {
-  //     std::cout << pair.first << " : ";
-  //     for (const double& val : pair.second) {
-  //         std::cout << val ;
-  //     }
-  //     std::cout << std::endl;
-  // }
-  if (ctlTime_ <= 9.60 && ctlTime_ >= 9.50){
-    qTarget = realRobot().mbc().q;
-
-    for(int i = 1; i < robot().mb().nrJoints(); ++i)
-    {
-      if(realRobot().mb().joint(i).dof() == 1)
-      {
-        qTarget[i][0] = realRobot().mbc().q[i][0];
-      }
-    }
-  }
-
-  // qTarget = realRobot().q();
-  // std::cout << qTarget.size() << std::endl;
-
-  // auto it = postureTarget.begin();
-
-  // for(const auto &q : qTarget){
-  //   if(!q.empty() && q.size() == 1){
-  //     if(it != postureTarget.end()){
-  //         it->second = realRobot().mbc().q[i];
-  //         std::cout << "qTarget[" << i << "] = " << qTarget[i][0] << std::endl;
-  //     }
-  //     std::advance(it, 1);
-  //     for (const auto& elem : q) {std::cout << elem << " ";}
-  //   }   
-  //   i++; 
   // }
 
-  // std::cout << "size : " << i << std::endl;
-  // std::cout << "postureTargetFix size : " << postureTarget.size() << std::endl;
-
-  if (ctlTime_ >= 10.000 && ctlTime_<= 10.10) { 
-    postureTask->posture(qTarget);
+  //Torque control over 10s
+  if (ctlTime_ >= 10.000) { 
+    mc_rtc::log::info("Current time {}", ctlTime_);
+    // postureTask->posture(qTarget);
     datastore().assign<std::string>("ControlMode", "Torque"); 
   }
+  
   auto ctrl_mode = datastore().get<std::string>("ControlMode");
-  if(ctrl_mode.compare("Position") == 0)
+  if(ctrl_mode.compare("Position") == 0 || ctlTime_ <= 10.005)
   {
+    ctlTime_ += timeStep;
+
+    std::cout<< "OpenLoop" << std::endl;
     return mc_control::MCController::run(mc_solver::FeedbackType::OpenLoop);
   }
-  else {
-    return mc_control::MCController::run(mc_solver::FeedbackType::ClosedLoopIntegrateReal);
-  }
-  return false;
+
+  ctlTime_ += timeStep;
+
+  std::cout<< "CloseLoop" << std::endl;
+  return mc_control::MCController::run(mc_solver::FeedbackType::ClosedLoopIntegrateReal);
 }
 
-void MyFirstController::reset(const mc_control::ControllerResetData & reset_data)
+void RobustTorqueControl::reset(const mc_control::ControllerResetData & reset_data)
 {
   mc_control::MCController::reset(reset_data);
 }
 
-CONTROLLER_CONSTRUCTOR("MyFirstController", MyFirstController)
+CONTROLLER_CONSTRUCTOR("RobustTorqueControl", RobustTorqueControl)

@@ -1,16 +1,18 @@
 #pragma once
 
 #include <mc_control/mc_controller.h>
+#include <mc_solver/DynamicsConstraint.h>
 #include <mc_tasks/PostureTask.h>
 #include <mc_tasks/CoMTask.h>
+#include <memory>
 #include <string>
 
 
 #include "api.h"
 
-struct MyFirstController_DLLAPI MyFirstController : public mc_control::MCController
+struct RobustTorqueControl_DLLAPI RobustTorqueControl : public mc_control::MCController
 {
-  MyFirstController(mc_rbdyn::RobotModulePtr rm, double dt, const mc_rtc::Configuration & config);
+  RobustTorqueControl(mc_rbdyn::RobotModulePtr rm, double dt, const mc_rtc::Configuration & config);
 
   bool run() override;
 
@@ -18,6 +20,9 @@ struct MyFirstController_DLLAPI MyFirstController : public mc_control::MCControl
 
   std::shared_ptr<mc_tasks::PostureTask> postureTask ;
   std::shared_ptr<mc_tasks::CoMTask> comTask ;
+
+  std::unique_ptr<mc_solver::ContactConstraint> contactConstraintTest;
+  std::unique_ptr<mc_solver::DynamicsConstraint> dynamicConstraintTest;
 
   std::map<std::string, std::vector<double>> postureTarget;
   std::map<std::string, std::vector<double>> postureTargetJVRC1;
@@ -30,4 +35,6 @@ private:
   mc_rtc::Configuration config_;
   double ctlTime_;
   double leftFootRatio_;
+
+  std::vector<double> jointTorqueVec;
 };
