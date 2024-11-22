@@ -6,10 +6,6 @@ ObserverPipelines:
     - type: Encoder
       config:
         velocity: encoderVelocities
-#    - type: BodySensor
-#      update: false
-#      config:
-#        bodySensor: FloatingBase
     - type: Attitude
       update: true
     - type: KinematicInertial
@@ -17,6 +13,10 @@ ObserverPipelines:
       config:
         anchorFrame:
           maxAnchorFrameDiscontinuity: 0.05 # [m]
+    - type: BodySensor
+      update: true
+      config:  
+        bodySensor: FloatingBase
 # ObserverPipelines:
 #   name: "ObserverPipeline"
 #   gui: true
@@ -25,3 +25,4 @@ ObserverPipelines:
 #       config:
 #         velocity: encoderVelocities
 
+Plugins: [MyPluginPassivityHumanoid]
