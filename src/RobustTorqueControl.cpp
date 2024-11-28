@@ -134,13 +134,13 @@ bool RobustTorqueControl::run()
   {
     ctlTime_ += timeStep;
 
-    std::cout<< "OpenLoop" << std::endl;
+    // std::cout<< "OpenLoop" << std::endl;
     return mc_control::MCController::run(mc_solver::FeedbackType::OpenLoop);
   }
 
   ctlTime_ += timeStep;
 
-  std::cout<< "CloseLoop" << std::endl;
+  // std::cout<< "CloseLoop" << std::endl;
   return mc_control::MCController::run(mc_solver::FeedbackType::ClosedLoopIntegrateReal);
 }
 
