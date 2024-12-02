@@ -70,7 +70,7 @@ RobustTorqueControl::RobustTorqueControl(mc_rbdyn::RobotModulePtr rm, double dt,
   solver().addConstraintSet(contactConstraintTest);
   addContact({robot().name(), "ground", "LeftFoot", "AllGround"});
   addContact({robot().name(), "ground", "RightFoot", "AllGround"});
-  postureTask = std::make_shared<mc_tasks::PostureTask>(solver(), robot().robotIndex(), 10, 1000);
+  postureTask = std::make_shared<mc_tasks::PostureTask>(solver(), robot().robotIndex(), 10, 100);
   // comTask = std::make_shared<mc_tasks::CoMTask>(robots(), robot().robotIndex(), 3, 10);
   // solver().addTask(comTask);
   solver().addTask(postureTask);

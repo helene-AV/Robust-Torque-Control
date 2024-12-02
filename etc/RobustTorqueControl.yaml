@@ -25,4 +25,4 @@ ObserverPipelines:
 #       config:
 #         velocity: encoderVelocities
 
-Plugins: [MyPluginPassivityHumanoid]
+#Plugins: [MyPluginPassivityHumanoid]
