@@ -70,13 +70,14 @@ RobustTorqueControl::RobustTorqueControl(mc_rbdyn::RobotModulePtr rm, double dt,
   solver().addConstraintSet(contactConstraintTest);
   addContact({robot().name(), "ground", "LeftFoot", "AllGround"});
   addContact({robot().name(), "ground", "RightFoot", "AllGround"});
-  postureTask = std::make_shared<mc_tasks::PostureTask>(solver(), robot().robotIndex(), 10, 100);
-  // comTask = std::make_shared<mc_tasks::CoMTask>(robots(), robot().robotIndex(), 3, 10);
-  // solver().addTask(comTask);
+  postureTask = std::make_shared<mc_tasks::PostureTask>(solver(), robot().robotIndex(), 2, 100);
+  comTask = std::make_shared<mc_tasks::CoMTask>(robots(), robot().robotIndex(), 3, 10);
+  solver().addTask(comTask);
   solver().addTask(postureTask);
   datastore().make<std::string>("ControlMode", "Position"); // entree dans le datastore
   datastore().make<std::string>("Coriolis", "Yes"); 
   // datastore().make_call("getPostureTask", [this]() -> mc_tasks::PostureTaskPtr { return postureTask; });
+  comTask->move_com({0,0,1});
 
   gui()->addElement(this, {"Control Mode"},
                     mc_rtc::gui::Label("Current Control :", [this]() { return this->datastore().get<std::string>("ControlMode"); }),
@@ -116,16 +117,17 @@ RobustTorqueControl::RobustTorqueControl(mc_rbdyn::RobotModulePtr rm, double dt,
 
 bool RobustTorqueControl::run()
 { 
-  // if (ctlTime_ <= 9.60 && ctlTime_ >= 9.50){
-  //   qTarget = realRobot().mbc().q;
-  //   jointTorqueVec = robot().jointTorques();
-
-  // }
+  if (ctlTime_ <= 9.90 && ctlTime_ >= 9.50){
+    qTarget = realRobot().mbc().q;
+    postureTask->posture(qTarget);
+    solver().removeTask(comTask);
+    postureTask->stiffness(10);
+    // jointTorqueVec = robot().jointTorques();
+  }
 
   //Torque control over 10s
   if (ctlTime_ >= 10.000) { 
     mc_rtc::log::info("Current time {}", ctlTime_);
-    // postureTask->posture(qTarget);
     datastore().assign<std::string>("ControlMode", "Torque"); 
   }
   
