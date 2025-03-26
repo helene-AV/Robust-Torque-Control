@@ -1,0 +1,2 @@
+This fork adds the computation of the inverse dynamics outside of mc_rtc as a mean to compare our results whith the results given by mc_rtc. In order for it to be working you also need to have the version of mc_rtc which prints out the dynamics and QP results matrices since they are the one which would be use here in order to compute the inverse dynamics. This new inverse dynamcics is also added to the log and you can compare it with the inverse dynamics computed within mc_rtc. 
+The result should be identical with only one step difference.
