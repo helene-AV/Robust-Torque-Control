@@ -1,11 +1,15 @@
 #include "RobustTorqueControl.h"
+
 #include <Eigen/src/Core/Matrix.h>
 #include <RBDyn/MultiBodyConfig.h>
 #include <SpaceVecAlg/PTransform.h>
+
 #include <array>
+#include <eigen3/Eigen/src/Core/Matrix.h>
 #include <iostream>
 #include <iterator>
 #include <map>
+
 #include <mc_control/MCController.h>
 #include <mc_control/mc_global_controller.h>
 #include <mc_rbdyn/RobotLoader.h>
@@ -13,13 +17,24 @@
 #include <mc_rtc/logging.h>
 #include <mc_rtc/unique_ptr.h>
 #include <mc_solver/ContactConstraint.h>
+#include <mc_solver/TVMQPSolver.h>
 #include <mc_tasks/PostureTask.h>
 #include <mc_tasks/CoMTask.h>
 #include <memory>
 #include <mc_control/GlobalPluginMacros.h>
 #include <ostream>
 #include <string>
+#include <tvm/ControlProblem.h>
+#include <tvm/LinearizedControlProblem.h>
 
+#include <mc_solver/DynamicsConstraint.h>
+
+
+#include <iostream>
+#include <fstream>
+
+#include <iomanip>  // For std::setw
+#include <tvm/scheme/internal/ProblemComputationData.h>
 
 
 RobustTorqueControl::RobustTorqueControl(mc_rbdyn::RobotModulePtr rm, double dt, const mc_rtc::Configuration & config)
@@ -70,14 +85,19 @@ RobustTorqueControl::RobustTorqueControl(mc_rbdyn::RobotModulePtr rm, double dt,
   solver().addConstraintSet(contactConstraintTest);
   addContact({robot().name(), "ground", "LeftFoot", "AllGround"});
   addContact({robot().name(), "ground", "RightFoot", "AllGround"});
-  postureTask = std::make_shared<mc_tasks::PostureTask>(solver(), robot().robotIndex(), 2, 100);
-  comTask = std::make_shared<mc_tasks::CoMTask>(robots(), robot().robotIndex(), 3, 10);
-  solver().addTask(comTask);
+  postureTask = std::make_shared<mc_tasks::PostureTask>(solver(), robot().robotIndex(), 10, 1000);
+
+  // comTask = std::make_shared<mc_tasks::CoMTask>(robots(), robot().robotIndex(), 10.0, 1000);
+  // solver().addTask(comTask);
   solver().addTask(postureTask);
   datastore().make<std::string>("ControlMode", "Position"); // entree dans le datastore
   datastore().make<std::string>("Coriolis", "Yes"); 
+  // postureTask->stiffness(1);
   // datastore().make_call("getPostureTask", [this]() -> mc_tasks::PostureTaskPtr { return postureTask; });
-  comTask->move_com({0,0,1});
+  // // comTask->move_com({0,0,1});
+  // comZero = Eigen::Vector3d{0, 0, 0};
+  jointIndexL = robot().jointIndexByName("LKP");
+  jointIndexR = robot().jointIndexByName("RKP");
 
   gui()->addElement(this, {"Control Mode"},
                     mc_rtc::gui::Label("Current Control :", [this]() { return this->datastore().get<std::string>("ControlMode"); }),
@@ -100,6 +120,7 @@ RobustTorqueControl::RobustTorqueControl(mc_rbdyn::RobotModulePtr rm, double dt,
   {
     return leftFootRatio_;
   });
+
   // Update observers
   datastore().make_call("KinematicAnchorFrame::" + robot().name(),
                         [this](const mc_rbdyn::Robot & robot)
@@ -110,45 +131,237 @@ RobustTorqueControl::RobustTorqueControl(mc_rbdyn::RobotModulePtr rm, double dt,
                           return sva::interpolate(robot.surfacePose("RightFootCenter"),
                                                   robot.surfacePose("LeftFootCenter"), leftFootRatio_);
                         });
+  
+  logger_->addLogEntry("my torque", [this](){return tau_;});
 
   mc_rtc::log::success("RobustTorqueControl init done");
+
 }
 
 
 bool RobustTorqueControl::run()
 { 
-  if (ctlTime_ <= 9.90 && ctlTime_ >= 9.50){
-    qTarget = realRobot().mbc().q;
-    postureTask->posture(qTarget);
-    solver().removeTask(comTask);
-    postureTask->stiffness(10);
-    // jointTorqueVec = robot().jointTorques();
+  if(done)
+  {
+    exit(0);
   }
-
   //Torque control over 10s
   if (ctlTime_ >= 10.000) { 
-    mc_rtc::log::info("Current time {}", ctlTime_);
-    datastore().assign<std::string>("ControlMode", "Torque"); 
+    datastore().assign<std::string>("ControlMode", "Torque");
+    // done = true;
+  }
+
+  if(ctlTime_>= 20.0)
+  {
+    // comTask->com(comZero - Eigen::Vector3d{0, 0, 0.5});
+    postureTask->target({{"LKP",{1.0}}});
+    postureTask->target({{"RKP",{1.0}}});
+    done = true;
   }
   
   auto ctrl_mode = datastore().get<std::string>("ControlMode");
-  if(ctrl_mode.compare("Position") == 0 || ctlTime_ <= 10.005)
-  {
-    ctlTime_ += timeStep;
+  mc_rtc::log::info(ctrl_mode);
 
-    // std::cout<< "OpenLoop" << std::endl;
-    return mc_control::MCController::run(mc_solver::FeedbackType::OpenLoop);
+  if(verbose and start)
+  {
+    if(this->qpsolver->backend()== Backend::TVM)
+    {
+      tau_ = id_tvm("/home/helene/work/inverse_dynamics/id_tvm/1movement/data/");
+
+    }else if (this->qpsolver->backend()== Backend::Tasks) {
+      tau_ = id_tasks("/home/helene/work/inverse_dynamics/id_task_forces/1movement/data/");
+    }
   }
 
-  ctlTime_ += timeStep;
+  start = true; 
 
-  // std::cout<< "CloseLoop" << std::endl;
-  return mc_control::MCController::run(mc_solver::FeedbackType::ClosedLoopIntegrateReal);
+  ctlTime_ += timeStep;
+  // done = true;
+  mc_rtc::log::info("Current time {}", ctlTime_);
+  if(ctrl_mode.compare("Position") == 0)
+  {
+    mc_rtc::log::info("OpenLoop");
+    return mc_control::MCController::run(mc_solver::FeedbackType::OpenLoop);
+
+  }else{
+      mc_rtc::log::info("CloseLoop");
+      return mc_control::MCController::run(mc_solver::FeedbackType::ClosedLoopIntegrateReal);
+  }
 }
 
 void RobustTorqueControl::reset(const mc_control::ControllerResetData & reset_data)
 {
   mc_control::MCController::reset(reset_data);
+  // comTask->reset();
+  // comZero = comTask->com();
+}
+
+void RobustTorqueControl::switch_com_target()
+{
+  if(comDown) { comTask->com(comZero - Eigen::Vector3d{0, 0, 0.5}); }
+  else { comTask->com(comZero); }
+  comDown = !comDown;
+}
+
+Eigen::MatrixXd RobustTorqueControl::loadMatrixFromCSV(const std::string& filename) {
+    std::ifstream file(filename);  // Open the file
+    std::string line;
+    std::vector<std::string> rows;  // Store the rows to determine the size of the matrix
+
+    // Read the file line by line
+    while (std::getline(file, line)) {
+        rows.push_back(line);
+    }
+
+    // Close the file after reading
+    file.close();
+
+    // Determine the number of rows and columns
+    size_t numRows = rows.size();
+    size_t numCols = 0;
+
+    // Find the maximum number of columns by inspecting the first row
+    std::stringstream ss(rows[0]);
+    std::string value;
+    while (ss >> value) {
+        numCols++;
+    }
+
+    // Create the Eigen matrix with the correct size
+    Eigen::MatrixXd mat(numRows, numCols);
+
+    // Populate the matrix directly
+    for (size_t i = 0; i < numRows; ++i) {
+        std::stringstream ss(rows[i]);
+        for (size_t j = 0; j < numCols; ++j) {
+            ss >> mat(i, j);  // Extract each value and assign it to the matrix
+        }
+    }
+
+    return mat;
+}
+
+
+// Function to load a vector from a CSV file
+Eigen::VectorXd RobustTorqueControl::loadVectorFromCSV(const std::string& filename) {
+    std::ifstream file(filename);
+    std::string line;
+    std::vector<double> vector_data;
+    
+    while (std::getline(file, line)) {
+        vector_data.push_back(std::stod(line));
+    }
+
+    Eigen::VectorXd vec(vector_data.size());
+    for (int i = 0; i < vector_data.size(); i++) {
+        vec(i) = vector_data[i];
+    }
+
+    return vec;
+}
+
+Eigen::MatrixXd RobustTorqueControl::loadJacobianFromCSV(const std::string& filename, int leg, int force) {
+    std::ifstream file(filename);  // Open the file
+    std::string line;
+    std::vector<std::string> rows;  // Store the rows to determine the size of the matrix
+
+    // Read the file line by line
+    while (std::getline(file, line)) {
+        rows.push_back(line);
+    }
+
+    // Close the file after reading
+    file.close();
+
+    // Determine the number of rows and columns
+    size_t numRows = rows.size();
+    size_t numCols = 0;
+
+    // Find the maximum number of columns by inspecting the first row
+    std::stringstream ss(rows[0]);
+    std::string value;
+    while (ss >> value) {
+        numCols++;
+    }
+
+    // Create the Eigen matrix with the correct size
+    Eigen::MatrixXd mat(numRows, 41);
+
+    // Populate the matrix directly
+    for (size_t i = 0; i < numRows; ++i) {
+
+        std::stringstream ss(rows[i]);
+
+        for (size_t j = 0; j < 41; ++j) {
+            if(((j < 12 and j > 5) or j >17) and leg == 0)
+            {
+                mat(i, j) = 0;
+            }else if(j>11 and leg == 1) {
+                mat(i, j) = 0;
+            }else{
+                ss >> mat(i, j);  // Extract each value and assign it to the matrix
+            }
+        }
+
+    }
+
+    return mat;
+}
+
+Eigen::VectorXd RobustTorqueControl::id_tvm(std::string filename)
+{
+    // Load matrices and vectors from CSV
+    Eigen::MatrixXd H = loadMatrixFromCSV(filename + "matrix-tasks-H.csv");
+    Eigen::MatrixXd C = loadMatrixFromCSV(filename + "matrix-tasks-C.csv");
+    Eigen::MatrixXd qdotdot = loadMatrixFromCSV(filename + "qdotdot.csv");
+
+    Eigen::VectorXd tau = H*qdotdot + C;
+
+    Eigen::MatrixXd force_jac;
+    Eigen::MatrixXd contact;
+
+    for(int leg = 0; leg<2; leg++)
+    {
+        for(int force = 0; force<4; force++)
+        {
+
+            force_jac = loadMatrixFromCSV(filename + "jacobian_force" + std::to_string(force) + std::to_string(leg) + ".csv");
+            contact = loadMatrixFromCSV(filename + "force" + std::to_string(force) + std::to_string(leg) + ".csv");
+
+            tau += force_jac*contact; 
+        }
+    }
+
+    return tau;
+}
+
+Eigen::VectorXd RobustTorqueControl::id_tasks(std::string filename){
+
+  // Load matrices and vectors from CSV
+  Eigen::MatrixXd H = loadMatrixFromCSV(filename + "matrix-tasks-H.csv");
+  Eigen::MatrixXd C = loadMatrixFromCSV(filename + "matrix-tasks-C.csv");
+  Eigen::MatrixXd qdotdot = loadVectorFromCSV(filename + "alphaDsegment.csv");
+
+  Eigen::VectorXd tau = H*qdotdot + C;
+
+  Eigen::MatrixXd force_jac;
+  Eigen::MatrixXd contact;
+
+
+  for(int leg = 0; leg<2; leg++)
+  {
+      for(int force = 0; force<4; force++)
+      {
+  
+          force_jac = loadJacobianFromCSV(filename + "jac_" + std::to_string(force) + std::to_string(leg) + ".csv", leg, force);
+          contact = loadMatrixFromCSV(filename + "force" + std::to_string(force) + std::to_string(leg) + ".csv");
+
+          tau += force_jac.transpose()*contact; 
+      }
+  }
+
+  return tau;
+
 }
 
 CONTROLLER_CONSTRUCTOR("RobustTorqueControl", RobustTorqueControl)

@@ -14,9 +14,21 @@ struct RobustTorqueControl_DLLAPI RobustTorqueControl : public mc_control::MCCon
 {
   RobustTorqueControl(mc_rbdyn::RobotModulePtr rm, double dt, const mc_rtc::Configuration & config);
 
+  Eigen::MatrixXd loadMatrixFromCSV(const std::string& filename);
+
+  Eigen::VectorXd loadVectorFromCSV(const std::string& filename);
+
+  Eigen::MatrixXd loadJacobianFromCSV(const std::string& filename, int leg, int force);
+
+
+  Eigen::VectorXd id_tvm(std::string filename);
+  Eigen::VectorXd id_tasks(std::string filename);
+
   bool run() override;
 
   void reset(const mc_control::ControllerResetData & reset_data) override;
+
+  void switch_com_target();
 
   std::shared_ptr<mc_tasks::PostureTask> postureTask ;
   std::shared_ptr<mc_tasks::CoMTask> comTask ;
@@ -35,6 +47,16 @@ private:
   mc_rtc::Configuration config_;
   double ctlTime_;
   double leftFootRatio_;
+  bool comDown = true;
+  Eigen::Vector3d comZero;
+  int jointIndexR = 0;
+  int jointIndexL = 0;
+
+  bool done = false;
+  bool verbose = false;
 
   std::vector<double> jointTorqueVec;
-};
+  Eigen::VectorXd tau_;
+
+  bool start = false;
+  };
